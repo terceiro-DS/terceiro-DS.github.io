@@ -6,5 +6,5 @@
   ng build --output-path docs --base-href /ng-deploy/
 ```
 ```pwsh
-  ng build --configuration production --output-path docs --base-href terceiro-ds.github.io
+  ng build --configuration production --output-path docs --base-href /ng-deply/
 ```
