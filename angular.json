@@ -3,7 +3,11 @@
   "version": 1,
   "cli": {
     "packageManager": "npm",
+<<<<<<< Updated upstream
     "analytics": "532a053c-5ec3-4ca1-a19a-8ec486c7d88d"
+=======
+    "analytics": "598147b2-53b8-4d9e-bbfd-de785cc76320"
+>>>>>>> Stashed changes
   },
   "newProjectRoot": "projects",
   "projects": {

@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent {
+  isContentHidden = true;
+
+  toggleContent() {
+    this.isContentHidden = !this.isContentHidden;
+  }
+
 
 }
