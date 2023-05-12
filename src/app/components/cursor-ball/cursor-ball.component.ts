@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { gsap } from 'gsap';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-cursor-ball',
@@ -8,42 +7,47 @@ import { gsap } from 'gsap';
 })
 export class CursorBallComponent implements OnInit {
 
-  enabled = true;
+  @ViewChild('cursor', {read: ElementRef, static: false})
+  public cursor: ElementRef | any;
+
+  @ViewChild('cursorpointer', {read: ElementRef, static: false})
+  public cursor2: ElementRef | any;
+
+  public x: number | any;
+  public y: number | any;
+  public enabled = true;
+
+  constructor(private el: ElementRef) {}
 
   ngOnInit(): void {
-    let cursor: HTMLElement | any = document.querySelector('.cursor');
-    let cursorinner: any = document.querySelector('.cursor2');
-    let a: any = document.querySelectorAll('a');
+    let a: any = this.el.nativeElement.querySelectorAll('a');
 
-    document.addEventListener('mousemove', function (e) {
-      let x: any = e.clientX;
-      let y: any = e.clientY;
-      cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`
+    document.addEventListener('mousemove', e => {
+      this.x = e.clientX;
+      this.y = e.clientY;
+
+      this.cursor.nativeElement.style.transform = `translate3d(calc(${this.x}px - 50%), calc(${this.y}px - 50%), 0)`;
+
+      this.cursor2.nativeElement.style.top = `${this.y}px`;
+      this.cursor2.nativeElement.style.left = `${this.x}px`;
     });
 
-    document.addEventListener('mousemove', function (e) {
-      let x: any = e.clientX;
-      let y: any = e.clientY;
-      cursorinner.style.left = x + 'px';
-      cursorinner.style.top = y + 'px';
+    document.addEventListener('mousedown', () => {
+      this.cursor.nativeElement.classList.add('click');
+      this.cursor2.nativeElement.classList.add('cursorinnerhover')
     });
 
-    document.addEventListener('mousedown', function () {
-      cursor.classList.add('click');
-      cursorinner.classList.add('cursorinnerhover')
-    });
-
-    document.addEventListener('mouseup', function () {
-      cursor.classList.remove('click')
-      cursorinner.classList.remove('cursorinnerhover')
+    document.addEventListener('mouseup', () => {
+      this.cursor.nativeElement.classList.remove('click')
+      this.cursor2.nativeElement.classList.remove('cursorinnerhover')
     });
 
     a.forEach((item: any) => {
       item.addEventListener('mouseover', () => {
-        cursor.classList.add('hover');
+        this.cursor.nativeElement.classList.add('hover');
       });
       item.addEventListener('mouseleave', () => {
-        cursor.classList.remove('hover');
+        this.cursor.nativeElement.classList.remove('hover');
       });
     })
   }
