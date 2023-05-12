@@ -8,13 +8,7 @@
     flex-direction: column;
     text-align: center;
 
-    overflow:hidden;
-
-
-background:
-radial-gradient(circle at 100% 50%, transparent 20%, #9800f0 21%,
-  #c83bff 34%, transparent 35%, transparent),
-radial-gradient(circle at 0% 50%, transparent 20%, #c83bff 21%, #9800f0 34%, transparent 35%, transparent) 0 -50px;
-background-color: rgb(15 23 42);
-background-size: 75px 100px;
+    background: radial-gradient(circle at 100% 50%, transparent 20%, #9800f0 21%, #c83bff 34%, transparent 35%, transparent),  radial-gradient(circle at 0% 50%, transparent 20%, #c83bff 21%, #9800f0 34%, transparent 35%, transparent) 0 -50px;
+    background-color: rgb(15 23 42);
+    background-size: 75px 100px;
 }
