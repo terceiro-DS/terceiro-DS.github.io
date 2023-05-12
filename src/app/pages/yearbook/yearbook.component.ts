@@ -14,6 +14,11 @@ export class YearbookComponent implements OnInit {
     },
   ]
 
+  async loadHiddenElementsObserver(observer: any) {
+    let hiddenElements = document.querySelectorAll('.hiddenV')
+    hiddenElements.forEach((el) => observer.observe(el));
+  }
+
   ngOnInit() {
     for (let i = 0; i < 40; i++) {
       if (!this.students[i]) {
@@ -27,5 +32,18 @@ export class YearbookComponent implements OnInit {
       }
     }
     this.students.sort((a, b) => a.name.localeCompare(b.name));
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        console.log(entry);
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        } else {
+          entry.target.classList.remove('show');
+        }
+      });
+    });
+
+    this.loadHiddenElementsObserver(observer);
   }
 }
