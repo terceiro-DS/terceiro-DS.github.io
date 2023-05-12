@@ -1,1 +1,7 @@
-<p>card works!</p>
+<div class="overflow-hidden my-4 mx-2 w-80 rounded-lg bg-slate-800 shadow cursor-pointer">
+  <img [src]="img" class="aspect-square object-cover object-top min-w-full min-h-full w-auto h-full	" [alt]="name" />
+  <div class="p-4">
+    <h3 class="text-xl text-white font-medium antialiased	">{{ name }}</h3>
+    <p class="mt-1 text-gray-500"><i>"{{ quote }}"</i></p>
+  </div>
+</div>
