@@ -8,6 +8,8 @@ import { gsap } from 'gsap';
 })
 export class CursorBallComponent implements OnInit {
 
+  enabled = true;
+
   ngOnInit(): void {
     let cursor: HTMLElement | any = document.querySelector('.cursor');
     let cursorinner: any = document.querySelector('.cursor2');
