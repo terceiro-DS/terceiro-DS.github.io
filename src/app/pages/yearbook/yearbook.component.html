@@ -1,6 +1,6 @@
 <div class="w-full h-[100vh] min-h-screen flex justify-center place-content-start flex-wrap">
   <app-card class="h-fit mx-0" *ngFor="let student of students" [img]="student.img" [name]="student.name"
-    [quote]="student.quote"></app-card>
+    (click)="showInfoModal(student)" [quote]="student.quote" [nickname]="student.nickname"></app-card>
 </div>
 <div role="status" class="w-screen h-screen overflow-hidden m-auto" *ngIf="students.length == 0">
   <app-loading class="w-full h-full"></app-loading>

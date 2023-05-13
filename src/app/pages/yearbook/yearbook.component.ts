@@ -1,4 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { IUserData } from 'src/app/interfaces/IUserData';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-yearbook',
@@ -6,44 +10,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./yearbook.component.scss']
 })
 export class YearbookComponent implements OnInit {
-  students = [
-    {
-      name: 'Lorem Ipsum',
-      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmEN59-81G1RHdwO1TdxNrQl6D_Kuz_c9diBBAard0rAYG3Ggt-Ln3OBPOFc0LnA7qM_s&usqp=CAU',
-      quote: 'Lorem Ipsum'
-    },
-  ]
+  students: IUserData[] | any = []
 
-  async loadHiddenElementsObserver(observer: any) {
-    let hiddenElements = document.querySelectorAll('.hiddenV')
-    hiddenElements.forEach((el) => observer.observe(el));
+  constructor(private dataService: DataService, private route: Router, private http: HttpClient) { }
+
+  async getAll() {
+    return this.http
+      .get<any>('../../../assets/content.json')
+      .toPromise()
+      .then((res: any) => res.data)
+      .then((data: any) => {
+        return data;
+      });
   }
 
-  ngOnInit() {
-    for (let i = 0; i < 40; i++) {
-      if (!this.students[i]) {
-        this.students.push(
-          {
-            name: 'Lorem Ipsum',
-            img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmEN59-81G1RHdwO1TdxNrQl6D_Kuz_c9diBBAard0rAYG3Ggt-Ln3OBPOFc0LnA7qM_s&usqp=CAU',
-            quote: 'Lorem Ipsum'
-          },
-        )
-      }
-    }
-    this.students.sort((a, b) => a.name.localeCompare(b.name));
+  async ngOnInit() {
+    this.students = await this.getAll();
+    this.students.sort((a: IUserData, b: IUserData) => a.name.localeCompare(b.name));
+  }
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        console.log(entry);
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        } else {
-          entry.target.classList.remove('show');
-        }
-      });
-    });
-
-    this.loadHiddenElementsObserver(observer);
+  showInfoModal(userData: IUserData) {
+    console.log(userData);
+    this.dataService.setData(userData);
+    this.route.navigateByUrl('/aluno');
   }
 }

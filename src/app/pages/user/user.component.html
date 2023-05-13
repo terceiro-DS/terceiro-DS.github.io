@@ -1,0 +1,16 @@
+<app-card *ngIf="userData" class="h-fit mx-0" [img]="userData.img" [name]="userData.name" [quote]="userData.quote"
+  [nickname]="userData.nickname"></app-card>
+
+<div class="mx-auto max-w-md rounded-lg bg-white shadow" *ngIf="userData">
+  <div class="p-4">
+    <h3 class="text-xl font-medium text-gray-900">{{userData.descricao}}</h3>
+    <ul>
+      <li>
+        <a class="mt-1 text-gray-500" [href]="userData.github">GitHub</a>
+      </li>
+      <li> <a class="mt-1 text-gray-500" [href]="userData.instagram">Instagram</a>
+      </li>
+      <li><a class="mt-1 text-gray-500" [href]="userData.linkedin">LinkedIn</a></li>
+    </ul>
+  </div>
+</div>

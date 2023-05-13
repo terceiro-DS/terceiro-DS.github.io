@@ -1,0 +1,4 @@
+<div class="fotos" #fotos>
+  <img *ngFor="let imagem of imagens" [src]="imagem.url" [style.width.px]="imagem.width" alt="Imagem"
+    [style.height.px]="imagem.height" [style.object-fit]="'cover'">
+</div>
