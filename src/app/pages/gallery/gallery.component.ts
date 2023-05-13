@@ -7,7 +7,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 })
 export class GalleryComponent {
   imagens = [
-    { url: 'imagem1.jpg', width: 0, height: 0 },
+    { url: '', width: 0, height: 0 },
     { url: 'imagem2.jpg', width: 0, height: 0 },
     { url: 'imagem3.jpg', width: 0, height: 0 },
     // adicione quantas imagens quiser
