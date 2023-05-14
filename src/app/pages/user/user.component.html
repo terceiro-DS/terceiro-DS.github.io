@@ -3,21 +3,21 @@
   <app-card class="h-max mx-0 pt-4" [img]="userData.img" [name]="userData.name" [quote]="userData.quote"
     [nickname]="userData.nickname"></app-card>
 
-  <div class="min-h-max ml-2 rounded-lg bg-slate-800 shadow lg:mt-4" *ngIf="userData">
+  <div class="min-h-max ml-2 rounded-lg bg-[#2A2634] shadow lg:mt-4" *ngIf="userData">
     <div class="p-4 h-full">
       <h1 class="font-bold text-white text-lg mb-1">SOBRE MIM</h1>
-      <h3 class="text-md font-normal text-gray-400 rounded-lg bg-slate-900 p-3 mb-1" style="white-space: pre-line">
+      <h3 class="text-md font-normal text-gray-400 rounded-lg bg-[#19161f] p-3 mb-1" style="white-space: pre-line">
         {{userData.descricao}}</h3>
       <h1 class="font-bold text-white text-lg mb-1">REDES SOCIAIS</h1>
       <ul class="w-[8rem]">
-        <li class="mb-2 bg-slate-900 rounded-lg p-3 w-full">
+        <li class="mb-2 bg-[#19161f] rounded-lg p-3 w-full">
           <a class="text-gray-400 text-end text-md" [href]="userData.github"><i
               class="fa-brands fa-github mr-2"></i>GitHub</a>
         </li>
-        <li class="mb-2 bg-slate-900 rounded-lg p-3 w-full"> <a class="text-gray-400 text-end text-md"
+        <li class="mb-2 bg-[#19161f] rounded-lg p-3 w-full"> <a class="text-gray-400 text-end text-md"
             [href]="userData.instagram"><i class="fa-brands fa-instagram mr-2"></i>Instagram</a>
         </li>
-        <li class="mb-2 bg-slate-900 rounded-lg p-3 w-full"><a class="text-gray-400 text-end text-md"
+        <li class="mb-2 bg-[#19161f] rounded-lg p-3 w-full"><a class="text-gray-400 text-end text-md"
             [href]="userData.linkedin"><i class="fa-brands fa-linkedin mr-2"></i>LinkedIn</a>
         </li>
       </ul>
