@@ -2,12 +2,12 @@
   "data": [{
       "name": "Lucas Vieira da Silva",
       "nickname": "Luqueta",
-      "img": "https://drive.google.com/uc?id=1MHY3k6N70Polfuc5FOC3uEJERxNMJyM0",
-      "quote": "A vida é um limão.",
-      "descricao": "Nada ainda...",
-      "github": "https://github.com/",
-      "instagram": "https://instagram.com",
-      "linkedin": "https://linkedin.com",
+      "img": "https://drive.google.com/uc?id=1KMMDvQJ31yutLVwAZDdFNsK95dc01wer",
+      "quote": "Novum tempus advenientis.",
+      "descricao": "💻 Sou desenvolvedor full-stack e também trabalho como desenvolvedor de jogos freelancer no meu tempo livre. \n\n 🎸 Tenho um grande interesse por instrumentos musicais, como bateria, guitarra e violão!",
+      "github": "https://github.com/LucasVieiraS",
+      "instagram": "https://www.instagram.com/lu_casvieira/",
+      "linkedin": "https://www.linkedin.com/in/lucasvieirasilva/",
       "tccId": 0
     },
     {
@@ -103,10 +103,10 @@
       "nickname": "Pepe",
       "img": "https://drive.google.com/uc?id=1Ac1VTZOxdvnyE_jlD1blKSfihZxy7b68",
       "quote": "me da uma chave",
-      "descricao": "Nada ainda...",
-      "github": "https://github.com/",
-      "instagram": "https://instagram.com",
-      "linkedin": "https://linkedin.com",
+      "descricao": "Quero ser desenvolvedor back-end por isso que estudo para aperfeiçoar em spring, uma das coisas que eu mais gosto de fazer é assistir filme e pesquisar sobre física e astronomia ",
+      "github": "https://github.com/PedroHenriquevr",
+      "instagram": "https://instagram.com/pedro.hvr",
+      "linkedin": "https://linkedin.com/in/pedro-vieira-ribeiro",
       "tccId": 0
     }
   ]
