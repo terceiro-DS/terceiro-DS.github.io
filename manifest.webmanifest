@@ -1,0 +1,8 @@
+{
+  "name": "3° DS",
+  "short_name": "3° DS",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#fff",
+  "description": "Uma galeria para o 3° DS!"
+}
