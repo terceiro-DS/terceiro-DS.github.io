@@ -8,3 +8,4 @@
 ```pwsh
   ng build --configuration production --output-path docs --base-href /ng-deploy/
 ```
+Ao gerar o build, clonar o index.html e renomear como 404.html.
