@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {YearbookComponent} from "./yearbook/yearbook.component";
-import {UserComponent} from "./user/user.component";
-import {GalleryComponent} from "./gallery/gallery.component";
-import {DefaultComponent} from "./default/default.component";
+import { DefaultComponent } from "./default/default.component";
+import { GalleryComponent } from "./gallery/gallery.component";
+import { UserComponent } from "./user/user.component";
+import { YearbookComponent } from "./yearbook/yearbook.component";
 
 //Components
 
@@ -18,7 +18,7 @@ const routes: Routes = [
     component: YearbookComponent,
   },
   {
-    path: 'user/:nickname',
+    path: 'aluno/:nickname',
     component: UserComponent,
   },
   {
@@ -31,4 +31,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class RoutingModule {}
+export class RoutingModule { }

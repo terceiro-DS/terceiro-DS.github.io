@@ -1,6 +1,6 @@
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from '@angular/core';
 import { IUserData } from '../interfaces/IUserData';
-import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -23,13 +23,16 @@ export class DataService {
     return;
   }
   async getDataFromParam(key: string, value: string): Promise<IUserData | void> {
-    return await this.allData.forEach((data: any) => {
+    let temp;
+    const promises: any = this.allData.map(async (data: any) => {
       const dataKey = data[key];
       if (dataKey && dataKey.toLowerCase() === value.toLowerCase()) {
-        console.log(data);
+        temp = data;
         return data;
       }
     })
+    await Promise.all(promises);
+    return temp;
   }
 
   getAll() {

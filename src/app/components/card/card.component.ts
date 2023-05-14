@@ -33,6 +33,9 @@ export class CardComponent {
   @Input()
   tccId?: number;
 
+  @Input()
+  customClass: any;
+
   maxLength = 35;
 
   capitalizeFirstLetter(str: string): string {

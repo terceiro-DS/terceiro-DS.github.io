@@ -11,9 +11,20 @@
   font-family: 'Inter', sans-serif;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   background-color: rgb(15 23 42);
   overflow-x: hidden;
+  background-image: url('./assets/background-galaxy.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: exclusion;
+  min-height: 100%;
+  width: 100vw;
 }
 
 ::-moz-selection {
@@ -24,10 +35,6 @@ body {
 ::selection {
   color: rgb(255, 255, 255);
   background: rgb(160, 14, 228);
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 img {

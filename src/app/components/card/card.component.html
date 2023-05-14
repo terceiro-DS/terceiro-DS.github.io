@@ -1,7 +1,9 @@
-<div class="overflow-hidden hiddenV my-4 mx-2 w-80 rounded-lg min-h-max h-full bg-slate-800 shadow cursor-pointer">
-  <img *ngIf="img && name" [src]="img" class="aspect-square object-cover min-w-full min-h-full w-auto h-full" [alt]="name" />
+<div
+  [class]="'overflow-hidden hiddenV' + (customClass ? ' w-full ' : ' my-4 mx-2 w-80') + ' rounded-lg min-h-max h-full bg-slate-800 shadow cursor-pointer'">
+  <img *ngIf="img && name" [src]="img" class="aspect-square object-cover min-w-full min-h-full w-auto h-full"
+    [alt]="name" />
   <img *ngIf="!img" src="https://i.pinimg.com/550x/57/70/f0/5770f01a32c3c53e90ecda61483ccb08.jpg"
-    class="aspect-square object-cover min-w-full min-h-full w-auto h-full	animate-pulse" alt="Carregando..."/>
+    class="aspect-square object-cover min-w-full min-h-full w-auto h-full	animate-pulse" alt="Carregando..." />
   <div class="p-4">
     <h3 class="text-xl text-white font-medium antialiased" *ngIf="nickname">{{ nickname }}</h3>
     <h3 class="text-md text-gray-400 font-medium antialiased" *ngIf="name">({{ getMaxCharactersOf(name) }})</h3>

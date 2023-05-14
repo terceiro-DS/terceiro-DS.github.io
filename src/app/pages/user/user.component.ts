@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IUserData } from 'src/app/interfaces/IUserData';
 import { DataService } from 'src/app/services/data.service';
 
@@ -10,8 +10,18 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class UserComponent {
 
-  userData?: IUserData | void;
-  calls: number = 0;
+  default: any = {
+    name: 'Carregando...',
+    nickname: 'Carregando...',
+    img: null,
+    quote: 'Carregando...',
+    descricao: 'Carregando...',
+    github: 'Carregando...',
+    instagram: 'Carregando...',
+    linkedin: 'Carregando...',
+    tccId: 'Carregando...'
+  };
+  userData: any = this.default;
 
   constructor(private dataService: DataService, private route: ActivatedRoute) { }
 
@@ -19,22 +29,25 @@ export class UserComponent {
     console.log('attempting to get from nickname: ' + nickname);
     return await this.dataService.runGetAll().then(async () => {
       this.userData = await this.dataService.getDataFromParam('nickname', nickname)
-      console.log(this.userData);
     });
   }
 
-  ngAfterContentChecked() {
-    this.userData = this.dataService.getData();
-    if (this.userData && (this.userData.constructor != Array)) return
+  checkFromUserNameIfNotExists() {
     const nickname = this.route.snapshot.paramMap.get('nickname');
-    if (!nickname) return
-    this.calls += 1;
-    if (this.calls >= 2) return
-    this.getUserDataFromParam(nickname).then((data: any) => {
-      if (data) {
-        this.userData = data;
-        console.log('succesfully get user from route param.')
-      }
+    if (nickname) {
+      this.getUserDataFromParam(nickname);
+    }
+  }
+
+  loadUser() {
+    let userData = this.dataService.getData();
+    this.userData = userData;
+    this.checkFromUserNameIfNotExists()
+  }
+
+  ngAfterViewInit() {
+    Promise.resolve().then(() => {
+      this.loadUser();
     });
   }
 

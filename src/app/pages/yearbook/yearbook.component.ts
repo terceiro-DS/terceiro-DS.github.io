@@ -22,6 +22,6 @@ export class YearbookComponent implements OnInit {
 
   showInfoModal(student: IUserData) {
     this.dataService.setData(student);
-    this.route.navigate(['user', student.nickname.toLowerCase()]);
+    this.route.navigate(['aluno', student.nickname.toLowerCase()]);
   }
 }
