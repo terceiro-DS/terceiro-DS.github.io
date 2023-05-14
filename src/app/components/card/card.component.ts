@@ -43,7 +43,10 @@ export class CardComponent {
     return str.substring(0, this.maxLength - 3) + '...'
   }
 
-  getMaxCharactersOf(str: string, n?: number | any): string {
+  getMaxCharactersOf(str: string, n?: number | any): any {
+    if (!str) {
+      return;
+    }
     if (n && n > 10) {
       return str;
     }

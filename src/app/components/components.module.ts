@@ -2,7 +2,8 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { CardComponent } from './card/card.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-import { ModalComponent } from './modal/modal.component';
+import { LoadingComponent } from './loading/loading.component';
+import {RouterLink} from "@angular/router";
 
 
 
@@ -10,14 +11,16 @@ import { ModalComponent } from './modal/modal.component';
   declarations: [
     CardComponent,
     ToolbarComponent,
-    ModalComponent
+    LoadingComponent,
   ],
   imports: [
     CommonModule,
+    RouterLink,
   ],
   exports: [
     CardComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    LoadingComponent
   ]
 })
 export class ComponentsModule { }

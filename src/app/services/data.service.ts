@@ -1,16 +1,45 @@
 import { Injectable } from '@angular/core';
 import { IUserData } from '../interfaces/IUserData';
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
-  private data?: IUserData | null;
+  public data: any = [];
+  public allData: any = [];
 
-  setData(data: any): boolean {
+  constructor(private http: HttpClient) {
+  }
+
+  async runGetAll() {
+    this.allData = await this.getAll();
+    return;
+  }
+
+  setData(data: any) {
     this.data = data;
-    return data != null;
+    return;
+  }
+  async getDataFromParam(key: string, value: string): Promise<IUserData | void> {
+    return await this.allData.forEach((data: any) => {
+      const dataKey = data[key];
+      if (dataKey && dataKey.toLowerCase() === value.toLowerCase()) {
+        console.log(data);
+        return data;
+      }
+    })
+  }
+
+  getAll() {
+    return this.http
+      .get<any>('../../../assets/content.json')
+      .toPromise()
+      .then((res: any) => res.data)
+      .then((data: any) => {
+        return data;
+      });
   }
 
   getData(): any {

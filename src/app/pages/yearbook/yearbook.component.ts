@@ -14,24 +14,14 @@ export class YearbookComponent implements OnInit {
 
   constructor(private dataService: DataService, private route: Router, private http: HttpClient) { }
 
-  async getAll() {
-    return this.http
-      .get<any>('../../../assets/content.json')
-      .toPromise()
-      .then((res: any) => res.data)
-      .then((data: any) => {
-        return data;
-      });
-  }
 
   async ngOnInit() {
-    this.students = await this.getAll();
+    this.students = await this.dataService.getAll();
     this.students.sort((a: IUserData, b: IUserData) => a.name.localeCompare(b.name));
   }
 
-  showInfoModal(userData: IUserData) {
-    console.log(userData);
-    this.dataService.setData(userData);
-    this.route.navigateByUrl('/aluno');
+  showInfoModal(student: IUserData) {
+    this.dataService.setData(student);
+    this.route.navigate(['user', student.nickname.toLowerCase()]);
   }
 }
