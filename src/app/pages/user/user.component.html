@@ -1,10 +1,10 @@
-<div
-  class="lg:flex lg:align-center lg:justify-center lg:flex-row min-h-[30vh] max-h-[30vh]  h-max w-[60vw] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-  <app-card class="h-max mx-0 pt-4" [img]="userData.img" [name]="userData.name" [quote]="userData.quote"
-    [nickname]="userData.nickname"></app-card>
+<div class="lg:flex lg:align-center lg:justify-center lg:flex-row min-h-[30vh] max-h-max h-max w-[60vw] relative mx-0">
+  <app-card class="h-max w-fit mx-0 pt-4" [customClass]="'sm:w-[100%]'" [img]="userData.img" [name]="userData.name"
+    [quote]="userData.quote" [nickname]="userData.nickname"></app-card>
 
-  <div class="min-h-max ml-2 rounded-lg bg-[#2A2634] shadow lg:mt-4" *ngIf="userData">
-    <div class="p-4 h-full">
+  <div class="lg:max-h-max lg:min-h-fit lg:h-full sm:w-max ml-2 rounded-lg bg-[#2A2634] shadow lg:mt-8 sm:mt-6"
+    *ngIf="userData">
+    <div class="p-4 h-full w-full">
       <h1 class="font-bold text-white text-lg mb-1">SOBRE MIM</h1>
       <h3 class="text-md font-normal text-gray-400 rounded-lg bg-[#19161f] p-3 mb-1" style="white-space: pre-line">
         {{userData.descricao}}</h3>

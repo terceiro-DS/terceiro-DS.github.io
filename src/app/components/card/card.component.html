@@ -6,7 +6,7 @@
     class="aspect-square object-cover min-w-full min-h-full w-auto h-full	animate-pulse" alt="Carregando..." />
   <div class="p-4">
     <h3 class="text-xl text-white font-semibold antialiased" *ngIf="nickname">{{ nickname }}</h3>
-    <h3 class="text-md text-gray-400 font-medium antialiased mt-1" *ngIf="name">({{ getMaxCharactersOf(name) }})</h3>
+    <h3 class="text-md text-gray-400 font-medium antialiased" *ngIf="name">({{ getMaxCharactersOf(name) }})</h3>
     <p class="mt-1 text-gray-500 min-h-[3rem]" *ngIf="quote"><i>"{{ capitalizeFirstLetter(quote) }}"</i></p>
   </div>
 </div>

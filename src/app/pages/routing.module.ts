@@ -1,17 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DefaultComponent } from "./default/default.component";
+//import { DefaultComponent } from "./default/default.component";
 import { GalleryComponent } from "./gallery/gallery.component";
 import { UserComponent } from "./user/user.component";
 import { YearbookComponent } from "./yearbook/yearbook.component";
 
-//Components
-
-
 const routes: Routes = [
   {
     path: '',
-    component: DefaultComponent
+    component: YearbookComponent
   },
   {
     path: 'alunos',
