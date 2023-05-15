@@ -1,7 +1,10 @@
 <div class="row">
-  <div class="column">
-  <ng-container *ngFor="let i of range(1, 12)">
-    <img class="image" [src]="'../../../assets/photos/foto' + i + '.jpeg'" alt="Foto {{i}}">
+  <ng-container *ngFor="let i of range(1, 12); let j = index">
+    <div *ngIf="(j + 1) % 4 == 0" class="column">
+      <img class="image" [src]="'../../../assets/photos/foto' + (j - 2) + '.jpeg'" alt="Foto {{j - 2}}, {{j - 1}}, {{j}}, {{j + 1}}">
+      <img class="image" [src]="'../../../assets/photos/foto' + (j - 1) + '.jpeg'" alt="Foto {{j - 2}}, {{j - 1}}, {{j}}, {{j + 1}}">
+      <img class="image" [src]="'../../../assets/photos/foto' + j + '.jpeg'" alt="Foto {{j - 2}}, {{j - 1}}, {{j}}, {{j + 1}}">
+      <img class="image" [src]="'../../../assets/photos/foto' + (j + 1) + '.jpeg'" alt="Foto {{j - 2}}, {{j - 1}}, {{j}}, {{j + 1}}">
+    </div>
   </ng-container>
-</div>
 </div>
