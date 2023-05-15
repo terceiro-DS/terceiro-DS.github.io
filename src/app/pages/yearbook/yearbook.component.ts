@@ -12,7 +12,7 @@ import { DataService } from 'src/app/services/data.service';
 export class YearbookComponent implements OnInit {
   students: IUserData[] | any = []
 
-  constructor(private dataService: DataService, private route: Router, private http: HttpClient) { }
+  constructor(private dataService: DataService, private route: Router) { }
 
   fillLorem() {
     const template = {
@@ -28,13 +28,13 @@ export class YearbookComponent implements OnInit {
   }
 
   showInfoModal(student: IUserData) {
-    this.dataService.setData(student);
+    this.dataService.setViewData(student);
     this.route.navigate(['aluno', student.nickname.toLowerCase()]);
   }
 
   async ngOnInit() {
     this.fillLorem()
-    this.students = await this.dataService.getAll();
+    this.students = await this.dataService.getData();
     this.students.sort((a: IUserData, b: IUserData) => a.name.localeCompare(b.name));
   }
 

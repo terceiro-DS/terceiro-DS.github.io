@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-//import { DefaultComponent } from "./default/default.component";
 import { GalleryComponent } from "./gallery/gallery.component";
+import { ProjectComponent } from './project/project.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { UserComponent } from "./user/user.component";
 import { YearbookComponent } from "./yearbook/yearbook.component";
@@ -26,6 +26,10 @@ const routes: Routes = [
   {
     path: 'projetos',
     component: ProjectsComponent
+  },
+  {
+    path: 'projeto/:title',
+    component: ProjectComponent,
   },
 ];
 

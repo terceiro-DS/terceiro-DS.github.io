@@ -21,28 +21,25 @@ export class UserComponent {
     linkedin: 'Carregando...',
     tccId: 'Carregando...'
   };
+
   userData: any = this.default;
 
   constructor(private dataService: DataService, private route: ActivatedRoute) { }
 
   async getUserDataFromParam(nickname: string): Promise<IUserData | void> {
-    console.log('attempting to get from nickname: ' + nickname);
-    return await this.dataService.runGetAll().then(async () => {
-      this.userData = await this.dataService.getDataFromParam('nickname', nickname)
-    });
+    this.userData = await this.dataService.getDataFromParam('nickname', nickname)
   }
 
-  checkFromUserNameIfNotExists() {
-    const nickname = this.route.snapshot.paramMap.get('nickname');
-    if (nickname) {
-      this.getUserDataFromParam(nickname);
+  async loadUser() {
+    const cachedUserData = this.dataService.getViewData();
+    if (cachedUserData) {
+      this.userData = cachedUserData;
+    } else {
+      const nickname = this.route.snapshot.paramMap.get('nickname');
+      if (nickname) {
+        this.getUserDataFromParam(nickname);
+      }
     }
-  }
-
-  loadUser() {
-    let userData = this.dataService.getData();
-    this.userData = userData;
-    this.checkFromUserNameIfNotExists()
   }
 
   ngAfterViewInit() {

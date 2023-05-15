@@ -7,56 +7,72 @@ import { IUserData } from '../interfaces/IUserData';
 })
 export class DataService {
 
-  public data: any = [];
-  public allData: any = [];
+  public data: IUserData[] = [];
+  public viewData: IUserData;
+
+  public initialized: boolean = false;
 
   constructor(private http: HttpClient) {
+    this.initialize();
   }
 
-  async runGetAll() {
-    if (this.allData.length > 0) {
-      return;
-    }
-    this.allData = await this.getAll();
-    return;
+  async initialize() {
+    this.setData(await this.getAllFromJSON())
   }
 
-  setData(data: any) {
-    this.data = data;
-    return;
-  }
-
+  // PARAM SEARCH UTIL
   async getDataFromParam(key: string, value: string): Promise<IUserData | void> {
-    let temp;
-    const promises: any = this.allData.map(async (data: any) => {
-      const dataKey = data[key];
-      if (dataKey && dataKey.toLowerCase() === value.toLowerCase()) {
-        temp = data;
-        return data;
+    const cachedData = await this.getData();
+    let cachedDataFromParam;
+    const promises: any = cachedData.map(async (parsedData: any) => {
+      const parsedDataKey = parsedData[key];
+      if (parsedDataKey && parsedDataKey.toLowerCase() === value.toLowerCase()) {
+        cachedDataFromParam = parsedData;
+        return parsedData;
       }
     })
     await Promise.all(promises);
-    return temp;
+    return cachedDataFromParam;
   }
 
-  getAll() {
-    return this.http
+  // JSON UTIL
+  async getAllFromJSON() {
+    return await this.http
       .get<any>('../../../assets/content.json')
       .toPromise()
       .then((res: any) => res.data)
       .then((data: any) => {
-        if (this.allData.length == 0) {
-          this.allData = data;
-        }
         return data;
       });
   }
 
-  getData(): any {
+  // GETTERS AND SETTERS
+  setData(data: IUserData[]): void {
+    this.initialized = true;
+    this.data = data;
+  }
+
+  async getData(): Promise<any> {
+    if (!this.initialized) {
+      await this.initialize();
+    }
     return this.data;
   }
 
   removeData(): void {
     this.data = null;
+  }
+
+  // VIEW GETTERS AND SETTERS
+  setViewData(viewData: IUserData): void {
+    this.viewData = viewData;
+  }
+
+  getViewData(): IUserData {
+    return this.viewData;
+  }
+
+  removeViewData(): void {
+    this.viewData = null;
   }
 }
