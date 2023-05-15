@@ -1,5 +1,7 @@
-<div class="h-fit w-9/12 p-2.5">
+<div class="row">
+  <div class="column">
   <ng-container *ngFor="let i of range(1, 12)">
-    <img class="rounded-lg" [src]="'../../../assets/photos/foto' + i + '.jpeg'" alt="Foto {{i}}">
+    <img class="image" [src]="'../../../assets/photos/foto' + i + '.jpeg'" alt="Foto {{i}}">
   </ng-container>
+</div>
 </div>
