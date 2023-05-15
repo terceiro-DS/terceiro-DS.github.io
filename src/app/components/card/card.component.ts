@@ -36,7 +36,7 @@ export class CardComponent {
   @Input()
   customClass: any;
 
-  maxLength = 35;
+  maxLength = 32;
 
   capitalizeFirstLetter(str: string): string {
     return str.charAt(0).toUpperCase() + str.slice(1)

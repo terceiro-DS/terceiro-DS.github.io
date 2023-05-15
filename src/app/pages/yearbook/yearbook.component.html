@@ -1,18 +1,40 @@
-<div class="relative mx-auto max-w-max w-[90vw] max-h-[40vh] overflow-hidden rounded-lg bg-white shadow mt-6">
+<!--
+  <div
+  class="relative mx-auto h-max sm:hidden lg:p-1 md:w-[82%] lg:w-[84vw] max-h-[40vh] overflow-hidden rounded-lg bg-white shadow mt-6">
   <div>
     <img src="../../../assets/escada_1.jpeg" class="w-full object-center" alt="" />
   </div>
-  <div class="absolute inset-0 z-10 bg-gradient-to-t from-black"></div>
-  <div class="absolute inset-x-0 bottom-0 z-20 p-4">
+  <div class="absolute inset-0 sm:px-4 z-10 bg-gradient-to-t from-black"></div>
+  <div class="absolute inset-x-0 sm:px-4 bottom-0 z-20 p-4">
     <h3 class="text-xl font-bold text-white">NÓS
       SOMOS 3° DESENVOLVIMENTO DE SISTEMAS!</h3>
     <p class="mt-1 text-white text-opacity-80">Seja bem-vindo a nossa galeria!</p>
   </div>
 </div>
 
-<div class="relative mx-auto w-[90vw] h-[100vh] min-h-screen flex justify-center place-content-start flex-wrap">
-  <app-card (click)="showInfoModal(student)" class="h-fit mx-0" *ngFor="let student of students" [img]="student.img"
-    [name]="student.name" [quote]="student.quote" [nickname]="student.nickname"></app-card>
+<div class="max-w-md mx-auto bg-[#2A2634] rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+  <div class="md:flex">
+    <div class="md:shrink-0">
+      <img class="h-48 w-full object-cover md:h-full md:w-60" src="../../../assets/escada_1.jpeg"
+        alt="Modern building architecture">
+    </div>
+    <div class="p-8">
+      <div class="uppercase tracking-wide text-sm text-white font-semibold">Company retreats</div>
+      <a href="#" class="block mt-1 text-lg leading-tight font-medium text-gray-500 hover:underline">Incredible
+        accommodation for your team</a>
+      <p class="mt-2 text-white">Looking to take your team away on a retreat to enjoy awesome food and take in some
+        sunshine? We have a list of places to do just that.</p>
+    </div>
+  </div>
+</div>
+-->
+
+
+<div class="relative mx-auto w-[85vw] h-[100%] min-h-screen flex justify-center place-content-start flex-wrap mb-10">
+  <app-card (click)="showInfoModal(student)"
+    class="h-max md:p-1 lg:p-1 sm:w-[100%] md:w-[80rem] lg:w-[19%] my-4 mx-2 min-h-[15rem]"
+    *ngFor="let student of students" [img]="student.img" [name]="student.name" [quote]="student.quote"
+    [nickname]="student.nickname"></app-card>
 </div>
 <div role="status" class="w-screen h-screen overflow-hidden m-auto" *ngIf="students.length == 0">
   <app-loading class="w-full h-full"></app-loading>

@@ -6,27 +6,18 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
   styleUrls: ['./gallery.component.scss']
 })
 export class GalleryComponent {
-  imagens = [
-    { url: '', width: 0, height: 0 },
-    { url: 'imagem2.jpg', width: 0, height: 0 },
-    { url: 'imagem3.jpg', width: 0, height: 0 },
-    // adicione quantas imagens quiser
-  ];
+  range(start: number, end: number) {
+    const number = [];
+    for (let i = start; i <= end; i++) {
+      number.push(i);
+    }
+    return number;
+  }
 
   @ViewChild('fotos')
   fotos!: ElementRef;
 
   ngAfterViewInit() {
-    // obtém o tamanho da div pai
-    const divPaiWidth = this.fotos.nativeElement.offsetWidth;
-    const divPaiHeight = this.fotos.nativeElement.offsetHeight;
 
-    // define um tamanho aleatório para cada imagem
-    this.imagens.forEach(imagem => {
-      const width = Math.floor(Math.random() * divPaiWidth) + 1;
-      const height = Math.floor(Math.random() * divPaiHeight) + 1;
-      imagem.width = width;
-      imagem.height = height;
-    });
   }
 }

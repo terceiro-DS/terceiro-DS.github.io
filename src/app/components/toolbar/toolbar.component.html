@@ -30,23 +30,22 @@
       <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
         <div class="flex flex-shrink-0 items-center">
           <a class="block h-8 w-auto cursor-pointer lg:hidden" href="#">
-            <img src="../../../assets/logo.png" class="w-full h-full m-auto" alt="Logo DS">
+            <img src="../../../assets/logo.png" class="w-full h-full m-auto object-contain" alt="Logo DS">
           </a>
           <a class="hidden h-8 w-auto cursor-pointer lg:block" href="#">
-            <img src="../../../assets/logo.png" class="w-full h-full m-auto" alt="Logo DS">
+            <img src="../../../assets/logo.png" class="w-full h-full m-auto object-contain" alt="Logo DS">
           </a>
         </div>
         <div class="hidden sm:ml-6 sm:block">
           <div class="flex space-x-4">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
             <a routerLink="/alunos"
-              [class]=" (currentRoute === 'Alunos' ? ' text-gray-300 bg-[#2A2634] text-white' : 'text-gray-300 hover:bg-[#2A2634] hover:text-white') + 'block rounded-md px-3 py-2 text-base font-medium'"
+              [class]=" (currentRoute === 'Alunos' ? ' bg-[#2A2634]' : ' bg-none hover:bg-[#2A2634] hover:text-white') + ' text-gray-300 block rounded-md px-3 py-2 text-base font-medium'"
               aria-current="page">Alunos</a>
             <a routerLink="/galeria"
-              [class]=" (currentRoute === 'Galeria' ? ' text-gray-300 bg-[#2A2634] text-white' : 'text-gray-300 hover:bg-[#2A2634] hover:text-white') + 'block rounded-md px-3 py-2 text-base font-medium'">Galeria</a>
+              [class]=" (currentRoute === 'Galeria' ? '  bg-[#2A2634]' : ' bg-none hover:bg-[#2A2634] hover:text-white') + ' text-gray-300 block rounded-md px-3 py-2 text-base font-medium'">Galeria</a>
             <a routerLink="/projetos"
-              [class]=" (currentRoute === 'Projetos' ? ' text-gray-300 bg-[#2A2634] text-white' : 'text-gray-300 hover:bg-[#2A2634] hover:text-white') + 'block rounded-md px-3 py-2 text-base font-medium'"
-              class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Projetos</a>
+              [class]=" (currentRoute === 'Projetos' ? '  bg-[#2A2634]' : ' bg-none hover:bg-[#2A2634] hover:text-white') + ' text-gray-300 block rounded-md px-3 py-2 text-base font-medium'">Projetos</a>
           </div>
         </div>
       </div>

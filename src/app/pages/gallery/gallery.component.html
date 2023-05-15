@@ -1,4 +1,5 @@
-<div class="fotos" #fotos>
-  <img *ngFor="let imagem of imagens" [src]="imagem.url" [style.width.px]="imagem.width" alt="Imagem"
-    [style.height.px]="imagem.height" [style.object-fit]="'cover'">
+<div class="h-fit w-9/12 p-2.5">
+  <ng-container *ngFor="let i of range(1, 12)">
+    <img class="rounded-lg" [src]="'../../../assets/photos/foto' + i + '.jpeg'" alt="Foto {{i}}">
+  </ng-container>
 </div>

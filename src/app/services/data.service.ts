@@ -14,6 +14,9 @@ export class DataService {
   }
 
   async runGetAll() {
+    if (this.allData.length > 0) {
+      return;
+    }
     this.allData = await this.getAll();
     return;
   }
@@ -22,6 +25,7 @@ export class DataService {
     this.data = data;
     return;
   }
+
   async getDataFromParam(key: string, value: string): Promise<IUserData | void> {
     let temp;
     const promises: any = this.allData.map(async (data: any) => {
@@ -41,6 +45,9 @@ export class DataService {
       .toPromise()
       .then((res: any) => res.data)
       .then((data: any) => {
+        if (this.allData.length == 0) {
+          this.allData = data;
+        }
         return data;
       });
   }
