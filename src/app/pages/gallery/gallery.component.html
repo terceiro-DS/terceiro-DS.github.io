@@ -1,4 +1,5 @@
-<div class="row">
+<div class="conteudo">
+<div class="row px-auto ">
   <ng-container *ngFor="let i of range(1, 12); let j = index">
     <div *ngIf="(j + 1) % 4 == 0" class="column">
       <img class="image" [src]="'../../../assets/photos/foto' + (j - 2) + '.jpeg'" alt="Foto {{j - 2}}, {{j - 1}}, {{j}}, {{j + 1}}">
@@ -7,4 +8,5 @@
       <img class="image" [src]="'../../../assets/photos/foto' + (j + 1) + '.jpeg'" alt="Foto {{j - 2}}, {{j - 1}}, {{j}}, {{j + 1}}">
     </div>
   </ng-container>
+</div>
 </div>

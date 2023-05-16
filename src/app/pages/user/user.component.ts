@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { IProjectData } from 'src/app/interfaces/IProjectData';
 import { IUserData } from 'src/app/interfaces/IUserData';
 import { DataService } from 'src/app/services/data.service';
+import { ProjectsService } from 'src/app/services/projects.service';
 
 @Component({
   selector: 'app-user',
@@ -23,23 +25,43 @@ export class UserComponent {
   };
 
   userData: any = this.default;
+  tccData: any;
 
-  constructor(private dataService: DataService, private route: ActivatedRoute) { }
+  constructor(private dataService: DataService, private route: ActivatedRoute, private router: Router, private projectsService: ProjectsService) { }
+
+  async tryGetTccData() {
+    if (!this.userData) {
+      return;
+    }
+    this.tccData = await this.projectsService.getProjectFromId(this.userData.tccId);
+    console.log(this.tccData);
+  }
 
   async getUserDataFromParam(nickname: string): Promise<IUserData | void> {
     this.userData = await this.dataService.getDataFromParam('nickname', nickname)
+    await this.tryGetTccData();
   }
 
   async loadUser() {
     const cachedUserData = this.dataService.getViewData();
     if (cachedUserData) {
       this.userData = cachedUserData;
+      await this.tryGetTccData();
     } else {
       const nickname = this.route.snapshot.paramMap.get('nickname');
       if (nickname) {
         this.getUserDataFromParam(nickname);
       }
     }
+  }
+
+  capitalizeFirstLetter(str: string): string {
+    return str.charAt(0).toUpperCase() + str.slice(1)
+  }
+
+  showInfoModal(project: IProjectData) {
+    this.projectsService.setViewProject(project);
+    this.router.navigate(['projeto', project.title.toLowerCase()]);
   }
 
   ngAfterViewInit() {

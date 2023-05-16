@@ -3,12 +3,23 @@
     {
       "id": 1,
       "title": "Daily Manage",
-      "description": "Sistema de Gerenciamento de Formulários Dinâmicos"
+      "description": "Sistema de Gerenciamento de Formulários Dinâmicos",
+      "descriptionLong": "O gerenciamento de uma entidade quando em larga escala pode ser dificultoso. Sistemas que ainda utilizam papel, que além de gerarem prejuízos ao meio ambiente, correm o risco de extraviamento. Dado tal situação, Daily Manage é a solução."
     },
     {
       "id": 2,
       "title": "Skuld",
-      "description": "Sistema de Cronogramas"
+      "description": "Sistema de Cronogramas",
+      "descriptionLong": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum ",
+      "photos": [
+        "https://logodownload.org/wp-content/uploads/2017/03/medicamento-generico-logo.png",
+        "https://guiadafarmacia.com.br/wp-content/uploads/2017/09/logo-genericos-site.jpg"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "MassBuyers",
+      "description": "O projeto tem o objetivo de ajudar pequenos negócios a terem um contato maior com os fornecedores e a revenderem seus produtos por unidade ou massa."
     }
   ]
 }

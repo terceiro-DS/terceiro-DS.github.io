@@ -1,5 +1,7 @@
 export interface IProjectData {
   id: number,
   title: string,
-  description: string
+  description: string,
+  descriptionLong?: string,
+  photos?: string[],
 }

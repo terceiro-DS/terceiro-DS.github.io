@@ -35,6 +35,18 @@ export class DataService {
     return cachedDataFromParam;
   }
 
+  async getCreatorsFromId(id: number): Promise<IUserData[] | void> {
+    let cachedCreators: IUserData[] = [];
+    const cachedData = await this.getData();
+    const promises: any = cachedData.map(async (userData: IUserData) => {
+      if (userData.tccId == id) {
+        cachedCreators.push(userData);
+      }
+    });
+    await Promise.all(promises);
+    return cachedCreators;
+  }
+
   // JSON UTIL
   async getAllFromJSON() {
     return await this.http

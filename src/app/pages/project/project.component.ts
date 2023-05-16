@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IProjectData } from 'src/app/interfaces/IProjectData';
+import { IUserData } from 'src/app/interfaces/IUserData';
+import { DataService } from 'src/app/services/data.service';
 import { ProjectsService } from 'src/app/services/projects.service';
 
 @Component({
@@ -11,17 +13,28 @@ import { ProjectsService } from 'src/app/services/projects.service';
 export class ProjectComponent {
 
   projectData: any;
+  projectCreators: any;
 
-  constructor(private projectsService: ProjectsService, private route: ActivatedRoute) { }
+  constructor(private projectsService: ProjectsService, private dataService: DataService, private route: ActivatedRoute, private router: Router) { }
 
   async getProjectDataFromParam(title: string): Promise<IProjectData | void> {
     this.projectData = await this.projectsService.getProjectDataFromParam('title', title)
+    await this.tryGetCreatorsData();
+  }
+
+  async tryGetCreatorsData() {
+    if (!this.projectData) {
+      return;
+    }
+    this.projectCreators = await this.dataService.getCreatorsFromId(this.projectData.id);
+    console.log(this.projectCreators);
   }
 
   async loadUser() {
     const cachedProjectData = this.projectsService.getViewProject();
     if (cachedProjectData) {
       this.projectData = cachedProjectData;
+      await this.tryGetCreatorsData();
     } else {
       const title = this.route.snapshot.paramMap.get('title');
       if (title) {
@@ -30,6 +43,11 @@ export class ProjectComponent {
         console.error('Title is invalid.')
       }
     }
+  }
+
+  showInfoModal(user: IUserData) {
+    this.dataService.setViewData(user);
+    this.router.navigate(['aluno', user.nickname.toLowerCase()]);
   }
 
   ngAfterViewInit() {

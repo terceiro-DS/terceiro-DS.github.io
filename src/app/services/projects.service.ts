@@ -62,6 +62,19 @@ export class ProjectsService {
     this.projects = null;
   }
 
+  async getProjectFromId(id: number): Promise<IProjectData | void> {
+    let cachedProject: IProjectData;
+    const promises: any = this.projects.map(async (project: IProjectData) => {
+      console.log(project.title, project.id, id)
+      if (project.id == id) {
+        cachedProject = project;
+      }
+    });
+    await Promise.all(promises);
+    console.log(cachedProject);
+    return cachedProject;
+  }
+
   // VIEW GETTERS AND SETTERS
   setViewProject(viewProject: IProjectData): void {
     this.viewProject = viewProject;

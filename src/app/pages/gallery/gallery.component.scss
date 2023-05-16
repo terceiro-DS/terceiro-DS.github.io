@@ -1,6 +1,15 @@
+.conteudo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100%;
+}
+
 .row {
   display: flex;
   flex-wrap: wrap;
+  width: fit-content;
 }
 
 .column {
@@ -9,11 +18,6 @@
   padding: 0 4px;
 }
 
-.last-column {
-  flex-basis: 25%;
-  max-width: 25%;
-  padding-right: 0;
-}
 
 .column img {
   margin-top: 8px;
@@ -25,11 +29,9 @@
   .column {
     flex-basis: 50%;
     max-width: 50%;
+    padding: 0 0;
   }
 
-  .last-column {
-    padding-right: 4px;
-  }
 }
 
 @media screen and (max-width: 600px) {
@@ -38,7 +40,4 @@
     max-width: 100%;
   }
 
-  .last-column {
-    padding-right: 4px;
-  }
 }

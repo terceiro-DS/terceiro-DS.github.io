@@ -1,37 +1,61 @@
 <div
-  class="lg:flex lg:align-center lg:justify-center lg:flex-row min-h-[30vh] m-0 p-0 max-h-max h-max w-[100vw] relative py-16 px-60">
-  <app-card class="h-max w-[35rem]" [customClass]="'sm:w-[100%]'" [img]="userData.img" [name]="userData.name"
-    [quote]="userData.quote" [nickname]="userData.nickname"></app-card>
+  class="lg:flex lg:align-center lg:justify-center lg:flex-row  m-0 p-0 max-h-max h-full w-[100vw] relative py-16">
 
-  <div class="h-[29.75rem] sm:w-max ml-2 rounded-lg bg-[#2A2634] shadow" *ngIf="userData">
-    <div class="p-4 h-full w-full">
-      <!--SOBRE MIM-->
-      <h1 class="font-bold text-white text-lg mb-1">SOBRE MIM</h1>
-      <h3 class="text-md font-normal text-gray-400 rounded-lg bg-[#19161f] p-3 mb-1" style="white-space: pre-line">
-        {{userData.descricao}}</h3>
-      <!--REDES SOCIAIS-->
-      <h1 class="font-bold text-white text-lg mb-1 mt-2">REDES SOCIAIS</h1>
-      <ul class="w-[8rem]">
-        <li class="mb-2 bg-[#19161f] rounded-lg p-3 w-full">
-          <a *ngIf="userData.github" class="text-gray-400 text-end text-md" [href]="userData.github"><i
-              class="fa-brands fa-github mr-2"></i>GitHub</a>
-        </li>
-        <li *ngIf="userData.instagram" class="mb-2 bg-[#19161f] rounded-lg p-3 w-full"> <a
-            class="text-gray-400 text-end text-md" [href]="userData.instagram"><i
-              class="fa-brands fa-instagram mr-2"></i>Instagram</a>
-        </li>
-        <li *ngIf="userData.linkedin" class="mb-2 bg-[#19161f] rounded-lg p-3 w-full"><a
-            class="text-gray-400 text-end text-md" [href]="userData.linkedin"><i
-              class="fa-brands fa-linkedin mr-2"></i>LinkedIn</a>
-        </li>
-      </ul>
-      <!--TCC-->
-      <h1 class="font-bold text-white text-lg mb-1">TCC</h1>
-      <div class="w-full h-max">
-        <div class="mx-auto rounded-lg bg-[#19161f] shadow">
-          <div class="p-4">
-            <h3 class="text-xl font-medium text-white">Nome do Projeto</h3>
-            <p class="mt-1 text-gray-500">Descrição sobre o projeto</p>
+  <div class="h-fit w-[50vw] ml-2 rounded-lg bg-[#2A2634] shadow flex flex-row" *ngIf="userData">
+    <div class="pt-8 pl-8 h-full w-[25%]">
+      <!--CARD-->
+      <img *ngIf="userData && userData.img && userData.name" [src]="userData.img"
+        class="rounded-lg object-cover w-full h-full h-[10rem] w-[10rem] aspect-square" [alt]="userData.name" />
+      <img *ngIf="!userData.img" src="https://i.pinimg.com/550x/57/70/f0/5770f01a32c3c53e90ecda61483ccb08.jpg"
+        class="aspect-square object-cover min-w-full min-h-full w-auto h-full	animate-pulse" alt="Carregando..." />
+      <div class="max-w-[10rem] w-full">
+        <h3 class="text-xl text-white font-semibold antialiased mt-2" *ngIf="userData.nickname">{{ userData.nickname }}</h3>
+        <h3 class="text-sm text-gray-400 font-medium antialiased" *ngIf="userData.name">({{ userData.name }})</h3>
+        <p class="mt-1 text-gray-500 min-h-[3rem] line-clamp-2" *ngIf="userData.quote"><i>"{{ capitalizeFirstLetter(userData.quote)
+            }}"</i></p>
+      </div>
+    </div>
+    <div class="px-8 py-8 w-full">
+
+      <!--Conteudo-->
+      <div >
+        <!--SOBRE MIM-->
+        <h1 class="font-bold text-white text-lg mb-1">SOBRE MIM</h1>
+        <h3 class="text-md font-normal text-gray-400 rounded-lg bg-[#19161f] p-3 mb-6 mt-1" style="white-space: pre-line">
+          {{userData.descricao}}</h3>
+      </div>
+      <div>
+        <!--REDES SOCIAIS-->
+        <h1 class="font-bold text-white text-lg mb-1 mt-2">REDES SOCIAIS</h1>
+        <ul class="w-full flex align-center justify-between flex-row mb-6 mt-1">
+          <li class="mb-2 bg-[#19161f] rounded-lg p-3 w-[32%]">
+            <a *ngIf="userData.github" class="text-gray-400 text-end text-md" [href]="userData.github"><i
+                class="fa-brands fa-github mr-2"></i>GitHub</a>
+          </li>
+          <li *ngIf="userData.instagram" class="mb-2 bg-[#19161f] rounded-lg p-3 w-[32%]"> <a
+              class="text-gray-400 text-end text-md" [href]="userData.instagram"><i
+                class="fa-brands fa-instagram mr-2"></i>Instagram</a>
+          </li>
+          <li *ngIf="userData.linkedin" class="mb-2 bg-[#19161f] rounded-lg p-3 w-[32%]"><a
+              class="text-gray-400 text-end text-md" [href]="userData.linkedin"><i
+                class="fa-brands fa-linkedin mr-2"></i>LinkedIn</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <!--TCC-->
+        <h1 class="font-bold text-white text-lg mb-1">TCC</h1>
+        <div class="w-full h-max mt-1 cursor-pointer">
+          <div class="mx-auto rounded-lg bg-[#19161f] shadow " *ngIf="tccData" (click)="showInfoModal(tccData)">
+            <div class="p-4">
+              <h3 class="text-xl font-medium text-white">{{ tccData.title }}</h3>
+              <p class="mt-1 text-gray-500">{{ tccData.description }}</p>
+            </div>
+          </div>
+          <div class="mx-auto rounded-lg bg-[#19161f] shadow" *ngIf="!tccData">
+            <div class="p-4">
+              <h3 class="text-lg font-medium text-gray-500">Projeto Privado ou Inexistente</h3>
+            </div>
           </div>
         </div>
       </div>
