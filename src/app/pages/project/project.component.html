@@ -1,21 +1,25 @@
 <div class="mx-auto rounded-lg bg-[#19161f] shadow mt-3 mb-3 p-4 w-[60%]" *ngIf="projectData">
   <div class="p-4">
     <h1 class="font-bold text-white text-lg mb-1">NOME</h1>
-    <h3 class="text-xl font-bold text-gray-300 rounded-lg shadow bg-[#2a2634] w-fit p-2">{{ projectData.title }}</h3>
+    <h3 class="text-md font-medium text-gray-300 rounded-lg shadow bg-[#2a2634] w-fit p-2">{{ projectData.title }}</h3>
 
     <h1 class="font-bold text-white text-lg mb-1 mt-2">DESCRIÇÃO</h1>
-    <p class="mt-1 text-gray-500 rounded-lg shadow bg-[#2a2634] w-fit h-fit p-2" *ngIf="projectData.descriptionLong">{{ projectData.descriptionLong }}</p>
-    <p class="mt-1 text-gray-500 rounded-lg shadow bg-[#2a2634] w-fit h-fit p-2" *ngIf="!projectData.descriptionLong && projectData.description">{{ projectData.description }}</p>
+    <p class="mt-1 text-gray-500 rounded-lg shadow bg-[#2a2634] w-fit h-fit p-2" *ngIf="projectData.descriptionLong">{{
+      projectData.descriptionLong }}</p>
+    <p class="mt-1 text-gray-500 rounded-lg shadow bg-[#2a2634] w-fit h-fit p-2"
+      *ngIf="!projectData.descriptionLong && projectData.description">{{ projectData.description }}</p>
 
     <h1 class="font-bold text-white text-lg mb-1 mt-2" *ngIf="projectData.photos">FOTO</h1>
     <div *ngIf="projectData.photos">
-      <img [src]="photo" [alt]="'Foto ' + (j+1)" class="rounded-lg mb-2" *ngFor="let photo of projectData.photos; let j = index">
+      <img [src]="photo" [alt]="'Foto ' + (j+1)" class="rounded-lg mb-2"
+        *ngFor="let photo of projectData.photos; let j = index">
     </div>
 
     <h1 class="font-bold text-white text-lg mb-1 mt-2">DESENVOLVEDORES</h1>
     <div class="flex flex-wrap justify-start gap-3 rounded-lg shadow mt-3 mb-3 w-fit" *ngIf="projectCreators">
       <div class="h-10 w-10 cursor-pointer" *ngFor="let creator of projectCreators" (click)="showInfoModal(creator)">
-        <img class="h-full w-full rounded-full object-cover object-center shadow" [src]="creator.img" [alt]="creator.name" />
+        <img class="h-full w-full rounded-full object-cover object-center shadow" [src]="creator.img"
+          [alt]="creator.name" />
       </div>
     </div>
 

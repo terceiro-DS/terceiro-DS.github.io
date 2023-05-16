@@ -1,7 +1,7 @@
 <div
   [class]="'overflow-hidden hiddenV' + (customClass ? ' w-full ' : ' w-full') + 'h-max rounded-lg bg-[#2A2634] shadow cursor-pointer'">
-  <img *ngIf="img && name" [src]="img" class="aspect-square object-cover min-w-full min-h-full w-auto h-full"
-    [alt]="name" />
+  <img *ngIf="img && name" [src]="img"
+    class="aspect-square object-cover min-w-full min-h-full w-auto h-full max-h-[30.75rem]" [alt]="name" />
   <img *ngIf="!img" src="https://i.pinimg.com/550x/57/70/f0/5770f01a32c3c53e90ecda61483ccb08.jpg"
     class="aspect-square object-cover min-w-full min-h-full w-auto h-full	animate-pulse" alt="Carregando..." />
   <div class="p-4">
