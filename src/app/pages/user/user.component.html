@@ -1,32 +1,34 @@
-<div class="lg:flex lg:align-center lg:justify-center lg:flex-row  m-0 p-0 max-h-max h-full w-[100vw] relative py-16">
+<div class="flex align-center justify-center flex-row  m-0 p-0 max-h-max h-full w-[100vw] relative py-16">
 
-  <div class="h-fit w-[50vw] ml-2 rounded-lg bg-[#2A2634] shadow flex flex-row" *ngIf="userData">
-    <div class="pt-8 pl-8 h-full w-[25%]">
-      <!--CARD-->
+  <div class="h-fit w-[60vw] mx-2 rounded-lg bg-[#2A2634] shadow flex flex-row md:flex-col md:w-fit" *ngIf="userData">
+    <!--CARD-->
+    <div class="pt-8 pl-8 h-full w-[25%] md:w-[100%] md:flex md:flex-row ">
       <img *ngIf="userData && userData.img && userData.name" [src]="userData.img"
-        class="rounded-lg object-cover w-full h-full h-[10rem] w-[10rem] aspect-square hover:opacity-5"
-        [alt]="userData.name" />
+        class="rounded-lg object-cover w-full h-fit md:w-[25%] aspect-square hover:opacity-5" [alt]="userData.name" />
       <img *ngIf="!userData.img" src="https://i.pinimg.com/550x/57/70/f0/5770f01a32c3c53e90ecda61483ccb08.jpg"
         class="aspect-square object-cover min-w-full min-h-full w-auto h-full	animate-pulse" alt="Carregando..." />
-      <div class="max-w-[10rem] w-full">
-        <h3 class="text-xl text-white font-semibold antialiased mt-2" *ngIf="userData.nickname">{{ userData.nickname }}
+      <div class=" w-fit h-fit md:flex md:flex-row md:flex-wrap">
+        <h3 class="text-xl text-white font-semibold antialiased mt-2 md:mt-0 md:px-4 md:h-fit"
+          *ngIf="userData.nickname">{{
+          userData.nickname }}
         </h3>
-        <h3 class="text-xs text-gray-400 font-medium antialiased" *ngIf="userData.name">({{ userData.name }})</h3>
-        <p class="mt-1 text-gray-500 text-ms min-h-[3rem] h-full line-clamp-4" *ngIf="userData.quote"><i>"{{
-            capitalizeFirstLetter(userData.quote)
-            }}"</i></p>
-        <i class="w-full fa-solid fa-code bg-[#19161f] rounded-lg p-2 text-xs text-gray-400 mt-3 text-center hover:border-gray-300 border-2 border-transparent"
+        <h3 class="text-xs text-gray-400 font-medium antialiased line-clamp-2  md:px-4" *ngIf="userData.name">({{
+          userData.name }})</h3>
+        <p class="mt-1 text-gray-500 text-ms line-clamp-2  md:line-clamp-4 md:px-4" *ngIf="userData.quote">"{{
+          capitalizeFirstLetter(userData.quote)
+          }}"</p>
+        <i class="w-fit fa-solid fa-code bg-[#19161f] rounded-lg p-2 text-xs text-gray-400 mt-3 text-center hover:border-gray-300 border-2 border-transparent md:mt-1 md:mx-4 h-fit"
           *ngIf="userData.nickname && checkIfIsDev(userData.nickname)"><small style="font-size: .4rem">ㅤ</small><span
             class="font-normal" style="font-family: 'Inter', sans-serif">DESENVOLVEDOR</span></i>
       </div>
     </div>
-    <div class="px-8 py-8 w-full">
+    <div class="my-8 mx-8 w-full md:w-fit ">
 
       <!--Conteudo-->
       <div>
         <!--SOBRE MIM-->
         <div class="w-full flex flex-row align-middle justify-between">
-          <div class="w-full h-full">
+          <div class="w-full h-fit">
             <h1 class="font-bold text-white text-lg mb-1">SOBRE MIM</h1>
           </div>
           <div class="w-fit min-w-[6rem] min-h-max flex align-middle text-right justify-end">
@@ -35,7 +37,7 @@
               VOLTAR</i>
           </div>
         </div>
-        <h3 class="text-md font-normal text-gray-400 rounded-lg bg-[#19161f] p-3 mb-6 mt-1"
+        <h3 class="text-md w-full font-normal text-gray-400 rounded-lg bg-[#19161f] p-3 mb-6 mt-1"
           style="white-space: pre-line">
           {{userData.descricao}}</h3>
       </div>
@@ -45,9 +47,9 @@
           *ngIf="userData.instagram || userData.github || userData.linkedin">REDES SOCIAIS</h1>
         <ul class="w-full flex align-center justify-between flex-row mb-3 mt-1"
           *ngIf="userData.instagram || userData.github || userData.linkedin">
-          <li
+          <li *ngIf="userData.github"
             class="mb-2 bg-[#19161f] transition	hover:bg-[#2a2634] hover:border-gray-300 border-2 border-transparent rounded-lg p-3 w-full mr-1">
-            <a *ngIf="userData.github" class="text-gray-400 text-end text-md" [href]="userData.github"><i
+            <a class="text-gray-400 text-end text-md" [href]="userData.github"><i
                 class="fa-brands fa-github mr-2"></i>GitHub</a>
           </li>
           <li *ngIf="userData.instagram"

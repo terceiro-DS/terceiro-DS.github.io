@@ -15,22 +15,12 @@
 <!--FOTOS-->
 <h1 class="font-bold text-white text-2xl p-1 pl-10 mt-4">FOTOS</h1>
 <div class="conteudo">
-
-  <div class="row px-10">
+  <div class="container">
     <ng-container *ngFor="let src of photos; let j = index;">
-      <div *ngIf="(j + 1) % 4 == 0" class="column">
-        <img class="image transition shadow rounded-sm cursor-pointer"
-          (click)="showModal({'j': j-3, 'src': driveUrl + photos[j-3]})" [src]="driveUrl + photos[j-3]"
-          *ngIf="photos[j-3]" alt="Foto {{j-3}}">
-        <img class="image transition shadow rounded-sm cursor-pointer"
-          (click)="showModal({'j': j-2, 'src': driveUrl + photos[j-2]})" [src]="driveUrl + photos[j-2]"
-          *ngIf="photos[j-2]" alt="Foto {{j-2}}">
-        <img class="image transition shadow rounded-sm cursor-pointer"
-          (click)="showModal({'j': j-1, 'src': driveUrl + photos[j-1]})" [src]="driveUrl + photos[j-1]"
-          *ngIf="photos[j-1]" alt="Foto {{j-1}}">
-        <img class="image transition shadow rounded-sm cursor-pointer" *ngIf="photos[j]"
-          (click)="showModal({'j': j, 'src': driveUrl + photos[j]})" [src]="driveUrl + photos[j]" alt="Foto {{j}}">
-      </div>
+      <figure>
+        <img
+          (click)="showModal({'j': j, 'src': driveUrl + src})" [src]="driveUrl + src" alt="Foto {{j}}">
+      </figure>
     </ng-container>
   </div>
 </div>
@@ -38,23 +28,11 @@
 <!--VIDEOS-->
 <h1 class="font-bold text-white text-2xl p-1 pl-10 mt-4">VÍDEOS</h1>
 <div class="conteudo">
-
-  <div class="row px-10">
+  <div class="container">
     <ng-container *ngFor="let src of videos; let j = index;">
-      <div *ngIf="(j + 1) % 4 == 0" class="column">
-        <video controls class="image rounded-sm cursor-pointer" *ngIf="videos[j-3]">
-          <source [src]="driveUrl + videos[j-3]">
+        <video controls class="image rounded-sm cursor-pointer" >
+          <source [src]="driveUrl + src">
         </video>
-        <video controls class="image rounded-sm cursor-pointer" *ngIf="videos[j-2]">
-          <source [src]="driveUrl + videos[j-2]">
-        </video>
-        <video controls class="image rounded-sm cursor-pointer" *ngIf="videos[j-1]">
-          <source [src]="driveUrl + videos[j-1]">
-        </video>
-        <video controls class="image rounded-sm cursor-pointer" *ngIf="videos[j]">
-          <source [src]="driveUrl + videos[j]">
-        </video>
-      </div>
     </ng-container>
   </div>
 </div>

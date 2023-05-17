@@ -1,7 +1,7 @@
 <nav class="bg-[#19161f]">
-  <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+  <div class="mx-auto max-w-7xl px-2 smi:px-6 lgi:px-8">
     <div class="relative flex h-16 items-center justify-between">
-      <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+      <div class="absolute inset-y-0 left-0 flex items-center smi:hidden">
         <!-- Mobile menu button-->
         <button (click)="toggleContent()" type="button"
           class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
@@ -27,16 +27,16 @@
           </svg>
         </button>
       </div>
-      <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+      <div class="flex flex-1 items-center justify-center smi:items-stretch smi:justify-start">
         <div class="flex flex-shrink-0 items-center">
-          <a class="block h-8 w-auto cursor-pointer lg:hidden" href="#">
+          <a class="block h-8 w-auto cursor-pointer lgi:hidden" href="#">
             <img src="../../../assets/logo.png" class="w-full h-full m-auto object-contain" alt="Logo DS">
           </a>
-          <a class="hidden h-8 w-auto cursor-pointer lg:block" href="#">
+          <a class="hidden h-8 w-auto cursor-pointer lgi:block" href="#">
             <img src="../../../assets/logo.png" class="w-full h-full m-auto object-contain" alt="Logo DS">
           </a>
         </div>
-        <div class="hidden sm:ml-6 sm:block">
+        <div class="hidden smi:ml-6 smi:block">
           <div class="flex space-x-4">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
             <a routerLink="/alunos"
@@ -53,7 +53,7 @@
   </div>
 
   <!-- Mobile menu, show/hide based on menu state. -->
-  <div [hidden]="isContentHidden" class="sm:hidden" id="mobile-menu">
+  <div [hidden]="isContentHidden" class="smi:hidden" id="mobile-menu">
     <div class="space-y-1 px-2 pb-3 pt-2 flex align-middle justify-evenly text-center">
       <!-- Current: "bg-[#2A2634] text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
       <a routerLink="/alunos"
