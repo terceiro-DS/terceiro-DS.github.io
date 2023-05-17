@@ -17,7 +17,11 @@ export class DataService {
   }
 
   async initialize() {
+    if (this.initialized) {
+      return;
+    }
     this.setData(await this.getAllFromJSON())
+    this.initialized = true;
   }
 
   // PARAM SEARCH UTIL

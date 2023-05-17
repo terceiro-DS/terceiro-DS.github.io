@@ -4,16 +4,20 @@
     <div class="pt-8 pl-8 h-full w-[25%]">
       <!--CARD-->
       <img *ngIf="userData && userData.img && userData.name" [src]="userData.img"
-        class="rounded-lg object-cover w-full h-full h-[10rem] w-[10rem] aspect-square" [alt]="userData.name" />
+        class="rounded-lg object-cover w-full h-full h-[10rem] w-[10rem] aspect-square hover:opacity-5"
+        [alt]="userData.name" />
       <img *ngIf="!userData.img" src="https://i.pinimg.com/550x/57/70/f0/5770f01a32c3c53e90ecda61483ccb08.jpg"
         class="aspect-square object-cover min-w-full min-h-full w-auto h-full	animate-pulse" alt="Carregando..." />
       <div class="max-w-[10rem] w-full">
         <h3 class="text-xl text-white font-semibold antialiased mt-2" *ngIf="userData.nickname">{{ userData.nickname }}
         </h3>
-        <h3 class="text-sm text-gray-400 font-medium antialiased" *ngIf="userData.name">({{ userData.name }})</h3>
-        <p class="mt-1 text-gray-500 min-h-[3rem] line-clamp-2" *ngIf="userData.quote"><i>"{{
+        <h3 class="text-xs text-gray-400 font-medium antialiased" *ngIf="userData.name">({{ userData.name }})</h3>
+        <p class="mt-1 text-gray-500 text-ms min-h-[3rem] h-full line-clamp-4" *ngIf="userData.quote"><i>"{{
             capitalizeFirstLetter(userData.quote)
             }}"</i></p>
+        <i class="w-full fa-solid fa-code bg-[#19161f] rounded-lg p-2 text-xs text-gray-400 mt-3 text-center hover:border-gray-300 border-2 border-transparent"
+          *ngIf="userData.nickname && checkIfIsDev(userData.nickname)"><small style="font-size: .4rem">ㅤ</small><span
+            class="font-normal" style="font-family: 'Inter', sans-serif">DESENVOLVEDOR</span></i>
       </div>
     </div>
     <div class="px-8 py-8 w-full">
@@ -21,25 +25,39 @@
       <!--Conteudo-->
       <div>
         <!--SOBRE MIM-->
-        <h1 class="font-bold text-white text-lg mb-1">SOBRE MIM</h1>
+        <div class="w-full flex flex-row align-middle justify-between">
+          <div class="w-full h-full">
+            <h1 class="font-bold text-white text-lg mb-1">SOBRE MIM</h1>
+          </div>
+          <div class="w-fit min-w-[6rem] min-h-max flex align-middle text-right justify-end">
+            <i class="fa-sharp fa-solid my-auto relative fa-arrow-left text-gray-300 h-4 w-full text-xs cursor-pointer"
+              routerLink="/alunos">
+              VOLTAR</i>
+          </div>
+        </div>
         <h3 class="text-md font-normal text-gray-400 rounded-lg bg-[#19161f] p-3 mb-6 mt-1"
           style="white-space: pre-line">
           {{userData.descricao}}</h3>
       </div>
       <div>
         <!--REDES SOCIAIS-->
-        <h1 class="font-bold text-white text-lg mb-1 mt-2">REDES SOCIAIS</h1>
-        <ul class="w-full flex align-center justify-between flex-row mb-6 mt-1">
-          <li class="mb-2 bg-[#19161f] rounded-lg p-3 w-[32%]">
+        <h1 class="font-bold text-white text-lg mb-1 mt-2"
+          *ngIf="userData.instagram || userData.github || userData.linkedin">REDES SOCIAIS</h1>
+        <ul class="w-full flex align-center justify-between flex-row mb-3 mt-1"
+          *ngIf="userData.instagram || userData.github || userData.linkedin">
+          <li
+            class="mb-2 bg-[#19161f] transition	hover:bg-[#2a2634] hover:border-gray-300 border-2 border-transparent rounded-lg p-3 w-full mr-1">
             <a *ngIf="userData.github" class="text-gray-400 text-end text-md" [href]="userData.github"><i
                 class="fa-brands fa-github mr-2"></i>GitHub</a>
           </li>
-          <li *ngIf="userData.instagram" class="mb-2 bg-[#19161f] rounded-lg p-3 w-[32%]"> <a
-              class="text-gray-400 text-end text-md" [href]="userData.instagram"><i
+          <li *ngIf="userData.instagram"
+            class="mb-2 bg-[#19161f] transition	hover:bg-[#2a2634] hover:border-gray-300 border-2 border-transparent rounded-lg p-3 w-full mx-1">
+            <a class="text-gray-400 text-end text-md" [href]="userData.instagram"><i
                 class="fa-brands fa-instagram mr-2"></i>Instagram</a>
           </li>
-          <li *ngIf="userData.linkedin" class="mb-2 bg-[#19161f] rounded-lg p-3 w-[32%]"><a
-              class="text-gray-400 text-end text-md" [href]="userData.linkedin"><i
+          <li *ngIf="userData.linkedin"
+            class="mb-2 bg-[#19161f] transition	hover:bg-[#2a2634] hover:border-gray-300 border-2 border-transparent rounded-lg p-3 w-full ml-1">
+            <a class="text-gray-400 text-end text-md" [href]="userData.linkedin"><i
                 class="fa-brands fa-linkedin mr-2"></i>LinkedIn</a>
           </li>
         </ul>
@@ -47,18 +65,21 @@
       <div>
         <!--TCC-->
         <h1 class="font-bold text-white text-lg mb-1">TCC</h1>
-        <div class="w-full h-max mt-1 cursor-pointer">
-          <div class="flex align-center justify-center h-fit mx-auto rounded-lg bg-[#19161f] shadow " *ngIf="tccData"
-            (click)="showInfoModal(tccData)">
-            <div class="p-4 w-[85%]">
+        <div class="w-full h-max mt-1">
+          <div
+            class="flex align-center justify-center h-fit mx-auto rounded-lg bg-[#19161f] transition	hover:bg-[#2a2634] hover:border-gray-300 border-2 border-transparent shadow cursor-pointer"
+            *ngIf="tccData" (click)="showInfoModal(tccData)">
+            <div class="p-4 w-full">
               <h3 class="text-md font-medium text-white">{{ tccData.title }}</h3>
               <p class="text-sm mt-1 text-gray-500">{{ tccData.description }}</p>
             </div>
-            <div class="p-4 w-[15%] min-h-full flex align-center justify-center">
+            <div class="p-4 w-[10%] min-h-full flex align-center justify-center">
               <i class="fa-solid fa-chevron-right text-gray-500 right-0 text-center h-4 w-6 m-auto aspect-square"></i>
             </div>
           </div>
-          <div class="mx-auto rounded-lg bg-[#19161f] shadow" *ngIf="!tccData">
+          <div
+            class="mx-auto rounded-lg bg-[#19161f] transition	hover:bg-[#2a2634] hover:border-gray-300 border-2 border-transparent shadow"
+            *ngIf="!tccData">
             <div class="p-4">
               <h3 class="text-md font-medium text-gray-500">
                 <i class="fa-solid fa-lock mr-2 text-gray-500"></i>

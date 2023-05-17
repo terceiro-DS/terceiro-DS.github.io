@@ -17,7 +17,11 @@ export class ProjectsService {
   }
 
   async initialize() {
+    if (this.initialized) {
+      return;
+    }
     this.setProjects(await this.getAllFromJSON())
+    this.initialized = true;
   }
 
   async getAllFromJSON(): Promise<any> {
@@ -65,13 +69,11 @@ export class ProjectsService {
   async getProjectFromId(id: number): Promise<IProjectData | void> {
     let cachedProject: IProjectData;
     const promises: any = this.projects.map(async (project: IProjectData) => {
-      console.log(project.title, project.id, id)
       if (project.id == id) {
         cachedProject = project;
       }
     });
     await Promise.all(promises);
-    console.log(cachedProject);
     return cachedProject;
   }
 

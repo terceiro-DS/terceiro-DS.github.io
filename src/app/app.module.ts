@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ComponentsModule } from "./components/components.module";
+import { IsdevPipe } from './pipes/isdev.pipe';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { ComponentsModule } from "./components/components.module";
     HttpClientModule,
     ComponentsModule
   ],
-  providers: [HttpClientModule],
+  providers: [HttpClientModule, IsdevPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

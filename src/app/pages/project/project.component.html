@@ -1,26 +1,42 @@
-<div class="mx-auto rounded-lg bg-[#19161f] shadow mt-3 mb-3 p-4 w-[60%]" *ngIf="projectData">
-  <div class="p-4">
-    <h1 class="font-bold text-white text-lg mb-1">NOME</h1>
-    <h3 class="text-md font-medium text-gray-300 rounded-lg shadow bg-[#2a2634] w-fit p-2">{{ projectData.title }}</h3>
-
-    <h1 class="font-bold text-white text-lg mb-1 mt-2">DESCRIÇÃO</h1>
-    <p class="mt-1 text-gray-500 rounded-lg shadow bg-[#2a2634] w-fit h-fit p-2" *ngIf="projectData.descriptionLong">{{
-      projectData.descriptionLong }}</p>
-    <p class="mt-1 text-gray-500 rounded-lg shadow bg-[#2a2634] w-fit h-fit p-2"
-      *ngIf="!projectData.descriptionLong && projectData.description">{{ projectData.description }}</p>
-
-    <h1 class="font-bold text-white text-lg mb-1 mt-2" *ngIf="projectData.photos">FOTO</h1>
-    <div *ngIf="projectData.photos">
-      <img [src]="photo" [alt]="'Foto ' + (j+1)" class="rounded-lg mb-2"
-        *ngFor="let photo of projectData.photos; let j = index">
-    </div>
-
-    <h1 class="font-bold text-white text-lg mb-1 mt-2">DESENVOLVEDORES</h1>
-    <div class="flex flex-wrap justify-start gap-3 rounded-lg shadow mt-3 mb-3 w-fit" *ngIf="projectCreators">
-      <div class="h-10 w-10 cursor-pointer" *ngFor="let creator of projectCreators" (click)="showInfoModal(creator)">
-        <img class="h-full w-full rounded-full object-cover object-center shadow" [src]="creator.img"
-          [alt]="creator.name" />
+<div class="flex justify-center flex-row m-0 p-0 max-h-max h-full w-[100vw] relative py-16 min-h-[60vh]"
+  style="align-items: center">
+  <div class="h-fit my-auto rounded-lg bg-[#19161f] shadow mt-3 mb-3 p-2 w-[60%] relative max-h-max py-auto"
+    *ngIf="projectData">
+    <div class="p-4">
+      <div class="w-full flex flex-row align-middle justify-between">
+        <div class="w-full h-full">
+          <h1 class="font-bold text-white text-lg mb-1">NOME</h1>
+        </div>
+        <div class="w-fit min-w-[6rem] min-h-max flex align-middle text-right justify-end">
+          <i class="fa-sharp fa-solid my-auto relative fa-arrow-left text-gray-300 h-4 w-full text-xs cursor-pointer"
+            routerLink="/projetos">
+            VOLTAR</i>
+        </div>
       </div>
-    </div>
+      <h3 class="text-md font-medium text-gray-300 rounded-lg shadow bg-[#2a2634] w-fit p-2">{{ projectData.title }}
+      </h3>
 
+      <h1 class="font-bold text-white text-lg mb-1 mt-2">DESCRIÇÃO</h1>
+      <p class="mt-1 text-gray-500 rounded-lg shadow bg-[#2a2634] w-fit h-fit p-2" *ngIf="projectData.descriptionLong">
+        {{
+        projectData.descriptionLong }}</p>
+      <p class="mt-1 text-gray-500 rounded-lg shadow bg-[#2a2634] w-fit h-fit p-2"
+        *ngIf="!projectData.descriptionLong && projectData.description">{{ projectData.description }}</p>
+
+      <h1 class="font-bold text-white text-lg mb-1 mt-2" *ngIf="projectData.photos">FOTO</h1>
+      <div *ngIf="projectData.photos">
+        <img [src]="photo" [alt]="'Foto ' + (j+1)" class="rounded-lg mb-2"
+          *ngFor="let photo of projectData.photos; let j = index">
+      </div>
+
+      <h1 class="font-bold text-white text-lg mb-1 mt-2">DESENVOLVEDORES</h1>
+      <div class="flex flex-wrap justify-start gap-3 rounded-lg shadow mt-1 mb-2 w-fit" *ngIf="projectCreators">
+        <div class="h-10 w-10 cursor-pointer transition-opacity hover:opacity-50"
+          *ngFor="let creator of projectCreators" (click)="showInfoModal(creator)">
+          <img class="h-full w-full rounded-full object-cover object-center shadow" [src]="creator.img"
+            [alt]="creator.name" />
+        </div>
+      </div>
+
+    </div>
   </div>

@@ -1,11 +1,13 @@
 <div
-  [class]="'overflow-hidden hiddenV' + (customClass ? ' w-full ' : ' w-full') + 'h-max rounded-lg bg-[#2A2634] shadow cursor-pointer'">
+  [class]="'overflow-hidden hiddenV' + (customClass ? ' w-full ' : ' w-full') + 'h-max rounded-lg bg-[#2A2634] hover:bg-[#19161f] shadow cursor-pointer'">
   <img *ngIf="img && name" [src]="img"
     class="aspect-square object-cover min-w-full min-h-full w-auto h-full max-h-[30.75rem]" [alt]="name" />
   <img *ngIf="!img" src="https://i.pinimg.com/550x/57/70/f0/5770f01a32c3c53e90ecda61483ccb08.jpg"
     class="aspect-square object-cover min-w-full min-h-full w-auto h-full	animate-pulse" alt="Carregando..." />
   <div class="p-4">
-    <h3 class="text-xl text-white font-semibold antialiased" *ngIf="nickname">{{ nickname }}</h3>
+    <h3 class="text-xl text-white font-semibold antialiased" *ngIf="nickname">{{ nickname }}<i
+        class="ml-2 fa-solid fa-code bg-[#19161f] rounded-lg p-2 text-xs max-h-max hover:border-gray-300 border-2 border-transparent"
+        *ngIf="(nickname | isdev)"><small style="font-size: .4rem">ㅤ</small>DEV</i></h3>
     <h3 class="text-md text-gray-400 font-medium antialiased" *ngIf="name">({{ getMaxCharactersOf(name) }})</h3>
     <p class="mt-1 text-gray-500 min-h-[3rem]" *ngIf="quote"><i>"{{ capitalizeFirstLetter(quote) }}"</i></p>
   </div>

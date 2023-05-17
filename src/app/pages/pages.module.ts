@@ -20,7 +20,7 @@ import { YearbookComponent } from "./yearbook/yearbook.component";
     UserComponent,
     YearbookComponent,
     ProjectsComponent,
-    ProjectComponent
+    ProjectComponent,
   ],
   imports: [
     CommonModule,

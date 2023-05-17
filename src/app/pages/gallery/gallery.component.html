@@ -1,12 +1,60 @@
-<div class="conteudo">
-<div class="row px-auto ">
-  <ng-container *ngFor="let i of range(1, 12); let j = index">
-    <div *ngIf="(j + 1) % 4 == 0" class="column">
-      <img class="image" [src]="'../../../assets/photos/foto' + (j - 2) + '.jpeg'" alt="Foto {{j - 2}}, {{j - 1}}, {{j}}, {{j + 1}}">
-      <img class="image" [src]="'../../../assets/photos/foto' + (j - 1) + '.jpeg'" alt="Foto {{j - 2}}, {{j - 1}}, {{j}}, {{j + 1}}">
-      <img class="image" [src]="'../../../assets/photos/foto' + j + '.jpeg'" alt="Foto {{j - 2}}, {{j - 1}}, {{j}}, {{j + 1}}">
-      <img class="image" [src]="'../../../assets/photos/foto' + (j + 1) + '.jpeg'" alt="Foto {{j - 2}}, {{j - 1}}, {{j}}, {{j + 1}}">
+<div class="absolute inset-0 h-auto z-10 bg-gradient-to-t from-black" *ngIf="currentPhoto">
+
+  <div class="mx-auto max-w-md rounded-lg bg-[#19161f] shadow">
+    <div class="p-4">
+      <i class="fa-solid fa-rectangle-xmark text-red-600"></i>
+      <h3 class="text-xl font-medium text-white">Foto {{ currentPhoto.j }}</h3>
+      <img [src]="currentPhoto.src" [alt]="'Photo ' + currentPhoto.j">
+      <p class="mt-1 text-gray-500">Sailboat UI is a modern UI component library for Tailwind CSS. Get started with 150+
+        open source components.</p>
     </div>
-  </ng-container>
+  </div>
+
 </div>
+
+<!--FOTOS-->
+<h1 class="font-bold text-white text-2xl p-1 pl-10 mt-4">FOTOS</h1>
+<div class="conteudo">
+
+  <div class="row px-10">
+    <ng-container *ngFor="let src of photos; let j = index;">
+      <div *ngIf="(j + 1) % 4 == 0" class="column">
+        <img class="image transition shadow rounded-sm cursor-pointer"
+          (click)="showModal({'j': j-3, 'src': driveUrl + photos[j-3]})" [src]="driveUrl + photos[j-3]"
+          *ngIf="photos[j-3]" alt="Foto {{j-3}}">
+        <img class="image transition shadow rounded-sm cursor-pointer"
+          (click)="showModal({'j': j-2, 'src': driveUrl + photos[j-2]})" [src]="driveUrl + photos[j-2]"
+          *ngIf="photos[j-2]" alt="Foto {{j-2}}">
+        <img class="image transition shadow rounded-sm cursor-pointer"
+          (click)="showModal({'j': j-1, 'src': driveUrl + photos[j-1]})" [src]="driveUrl + photos[j-1]"
+          *ngIf="photos[j-1]" alt="Foto {{j-1}}">
+        <img class="image transition shadow rounded-sm cursor-pointer" *ngIf="photos[j]"
+          (click)="showModal({'j': j, 'src': driveUrl + photos[j]})" [src]="driveUrl + photos[j]" alt="Foto {{j}}">
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+<!--VIDEOS-->
+<h1 class="font-bold text-white text-2xl p-1 pl-10 mt-4">VÍDEOS</h1>
+<div class="conteudo">
+
+  <div class="row px-10">
+    <ng-container *ngFor="let src of videos; let j = index;">
+      <div *ngIf="(j + 1) % 4 == 0" class="column">
+        <video controls class="image rounded-sm cursor-pointer" *ngIf="videos[j-3]">
+          <source [src]="driveUrl + videos[j-3]">
+        </video>
+        <video controls class="image rounded-sm cursor-pointer" *ngIf="videos[j-2]">
+          <source [src]="driveUrl + videos[j-2]">
+        </video>
+        <video controls class="image rounded-sm cursor-pointer" *ngIf="videos[j-1]">
+          <source [src]="driveUrl + videos[j-1]">
+        </video>
+        <video controls class="image rounded-sm cursor-pointer" *ngIf="videos[j]">
+          <source [src]="driveUrl + videos[j]">
+        </video>
+      </div>
+    </ng-container>
+  </div>
 </div>

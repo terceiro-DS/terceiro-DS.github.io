@@ -2,13 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IProjectData } from 'src/app/interfaces/IProjectData';
 import { IUserData } from 'src/app/interfaces/IUserData';
+import { IsdevPipe } from 'src/app/pipes/isdev.pipe';
 import { DataService } from 'src/app/services/data.service';
 import { ProjectsService } from 'src/app/services/projects.service';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss']
+  styleUrls: ['./user.component.scss'],
+  providers: []
 })
 export class UserComponent {
 
@@ -27,7 +29,7 @@ export class UserComponent {
   userData: any = this.default;
   tccData: any;
 
-  constructor(private dataService: DataService, private route: ActivatedRoute, private router: Router, private projectsService: ProjectsService) { }
+  constructor(private dataService: DataService, private route: ActivatedRoute, private router: Router, private projectsService: ProjectsService, public isdev: IsdevPipe) { }
 
   async tryGetTccData() {
     if (!this.userData) {
@@ -35,6 +37,10 @@ export class UserComponent {
     }
     this.tccData = await this.projectsService.getProjectFromId(this.userData.tccId);
     console.log(this.tccData);
+  }
+
+  checkIfIsDev(nickname: string) {
+    return this.isdev.transform(nickname);
   }
 
   async getUserDataFromParam(nickname: string): Promise<IUserData | void> {

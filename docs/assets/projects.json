@@ -1,6 +1,5 @@
 {
-  "data": [
-    {
+  "data": [{
       "id": 1,
       "title": "Daily Manage",
       "description": "Sistema de Gerenciamento de Formulários Dinâmicos",
@@ -9,17 +8,57 @@
     {
       "id": 2,
       "title": "Skuld",
-      "description": "Sistema de Cronogramas",
-      "descriptionLong": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum ",
+      "description": "Sistema de Gerenciamento de Horários Escolares",
+      "descriptionLong": "Skuld é um projeto de gerenciar horário escolar, com o objetivo de melhorar o fluxo de aulas.",
       "photos": [
-        "https://logodownload.org/wp-content/uploads/2017/03/medicamento-generico-logo.png",
-        "https://guiadafarmacia.com.br/wp-content/uploads/2017/09/logo-genericos-site.jpg"
+        "https://logodownload.org/wp-content/uploads/2017/03/medicamento-generico-logo.png"
       ]
     },
     {
       "id": 3,
       "title": "MassBuyers",
-      "description": "O projeto tem o objetivo de ajudar pequenos negócios a terem um contato maior com os fornecedores e a revenderem seus produtos por unidade ou massa."
+      "description": "Ajudar pequenos negócios a terem um contato maior com os fornecedores e a revenderem seus produtos por unidade ou massa.",
+      "descriptionLong": "O projeto tem o objetivo de ajudar pequenos negócios a terem um contato maior com os fornecedores e a revenderem seus produtos por unidade ou massa.",
+      "photos": [
+        "https://drive.google.com/open?id=1e_HISTjeaOLC_hpIJp6kYFiieZMVVd8S"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Controlizze",
+      "description": "Nada ainda..."
+    },
+    {
+      "id": 5,
+      "title": "Descartech",
+      "description": "Site voltado para o descarte de lixo eletrônico.",
+      "descriptionLong": "Nosso projeto é um site voltado para o descarte de lixo eletrônico, queremos tornar fácil e viável o despojo desse tipo de material, criando um ambiente mais sustentável e menos poluído."
+    },
+    {
+      "id": 6,
+      "title": "Bus Lanes",
+      "description": "Nada ainda..."
+    },
+    {
+      "id": 7,
+      "title": "Luta Rosa - Juntas pela vida",
+      "descriptionLong": "Decidimos desenvolver um aplicativo destinado a tumores de mama e colo de útero. Reconhecemos que muitas de nós têm ligações pessoais com mulheres e entendemos que lidar com essa situação difícil pode abalar a autoestima e o empoderamento pessoal. Nosso objetivo é auxiliar aquelas que desconhecem os possíveis sintomas do câncer, bem como aquelas que necessitam de apoio emocional durante esse período desafiador.",
+      "description": "Aplicativo destinado a tumores de mama e colo de útero.",
+      "photos": [
+        "https://drive.google.com/open?id=1e_HISTjeaOLC_hpIJp6kYFiieZMVVd8S"
+      ]
+    },
+    {
+      "id": 8,
+      "title": "AqCeAcha",
+      "description": "Um projeto de contratação de serviços de forma rápida até você."
+    },
+    {
+      "id": 9,
+      "title": "Focinho Feliz",
+      "description": "Um software que gerencia as consultas e agendamentos de um consultório veterinário."
     }
+
+
   ]
 }
