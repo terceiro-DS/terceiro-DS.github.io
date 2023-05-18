@@ -8,6 +8,7 @@ img {
   width: 100%;
   display: block;
 }
+
 figure {
   margin: 0;
   margin-bottom: 10px;
@@ -16,6 +17,16 @@ figure {
 .container {
   column-count: 4;
   column-gap: 10px;
+}
+
+#modal-figure {
+  overflow: hidden;
+  img {
+    transform-origin: center center;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 800px) {

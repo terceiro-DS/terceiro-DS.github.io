@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IProjectData } from 'src/app/interfaces/IProjectData';
 import { IUserData } from 'src/app/interfaces/IUserData';
@@ -27,7 +27,13 @@ export class ProjectComponent {
       return;
     }
     this.projectCreators = await this.dataService.getCreatorsFromId(this.projectData.id);
-    console.log(this.projectCreators);
+    this.projectCreators.forEach((data: IUserData) => {
+      data.loaded = false;
+    });
+  }
+
+  loadSpecificUserImage(data: IUserData) {
+    data.loaded = true;
   }
 
   async loadUser() {

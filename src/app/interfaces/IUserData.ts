@@ -7,5 +7,6 @@ export interface IUserData {
   github?: string,
   instagram?: string,
   linkedin?: string,
-  tccId?: number
+  tccId?: number,
+  loaded?: boolean,
 };

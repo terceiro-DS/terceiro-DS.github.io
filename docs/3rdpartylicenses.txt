@@ -10,6 +10,9 @@ MIT
 @angular/router
 MIT
 
+ngx-skeleton-loader
+MIT
+
 rxjs
 Apache-2.0
                                Apache License

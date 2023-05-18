@@ -1,5 +1,5 @@
-<nav class="bg-[#19161f]">
-  <div class="mx-auto max-w-7xl px-2 smi:px-6 lgi:px-8">
+<nav class="bg-[#19161f] w-screen">
+  <div class="mx-auto max-w-full px-2 smi:px-6 lgi:px-8">
     <div class="relative flex h-16 items-center justify-between">
       <div class="absolute inset-y-0 left-0 flex items-center smi:hidden">
         <!-- Mobile menu button-->
@@ -54,18 +54,17 @@
 
   <!-- Mobile menu, show/hide based on menu state. -->
   <div [hidden]="isContentHidden" class="smi:hidden" id="mobile-menu">
-    <div class="space-y-1 px-2 pb-3 pt-2 flex align-middle justify-evenly text-center">
+    <div class="space-y-1 pb-3 pt-2 flex align-middle justify-between text-center px-2">
       <!-- Current: "bg-[#2A2634] text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
       <a routerLink="/alunos"
-        [class]=" (currentRoute === 'Alunos' ? ' text-gray-300 bg-[#2A2634]' : 'text-gray-300 hover:bg-[#2A2634] hover:text-white') + 'block rounded-md px-3 py-2 text-base font-medium w-[30%]'"
+        [class]=" (currentRoute === 'Alunos' ? ' text-white bg-[#2A2634]' : 'bg-none text-gray-300') + ' block rounded-md px-3 py-2 text-base font-medium w-[30%]'"
         aria-current="page">Alunos</a>
       <a routerLink="/galeria"
-        [class]=" (currentRoute === 'Galeria' ? ' text-gray-300 bg-[#2A2634]' : 'text-gray-300 hover:bg-[#2A2634] hover:text-white') + 'block rounded-md px-3 py-2 text-base font-medium w-[30%] my-0'"
+        [class]=" (currentRoute === 'Galeria' ? ' text-white bg-[#2A2634]' : 'bg-none text-gray-300') + ' block rounded-md px-3 py-2 text-base font-medium w-[30%] my-0'"
         style="margin: 0 !important;">Galeria</a>
       <a routerLink="/projetos"
-        [class]=" (currentRoute === 'Projetos' ? ' text-gray-300 bg-[#2A2634]' : 'text-gray-300 hover:bg-[#2A2634] hover:text-white') + 'block rounded-md px-3 py-2 text-base font-medium w-[30%]'"
-        class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
-        style="margin: 0 !important;">Projetos</a>
+        [class]=" (currentRoute === 'Projetos' ? ' text-white bg-[#2A2634]' : 'bg-none text-gray-300') + ' block rounded-md px-3 py-2 text-base font-medium w-[30%] my-0'"
+        style="margin: 0 !important; font-size: .95rem; ">Projetos</a>
     </div>
   </div>
 </nav>

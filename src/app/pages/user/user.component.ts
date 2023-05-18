@@ -28,6 +28,7 @@ export class UserComponent {
 
   userData: any = this.default;
   tccData: any;
+  imageLoaded: boolean = false;
 
   constructor(private dataService: DataService, private route: ActivatedRoute, private router: Router, private projectsService: ProjectsService, public isdev: IsdevPipe) { }
 
@@ -39,8 +40,12 @@ export class UserComponent {
     console.log(this.tccData);
   }
 
-  checkIfIsDev(nickname: string) {
-    return this.isdev.transform(nickname);
+  loadImage() {
+    this.imageLoaded = true;
+  }
+
+  checkIfIsDev(nickname: string, key: string): boolean {
+    return this.isdev.transform(nickname, key);
   }
 
   async getUserDataFromParam(nickname: string): Promise<IUserData | void> {

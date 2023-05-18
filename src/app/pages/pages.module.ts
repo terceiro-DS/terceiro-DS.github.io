@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 
 //Module routing
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { ComponentsModule } from "../components/components.module";
 import { DefaultComponent } from "./default/default.component";
 import { GalleryComponent } from "./gallery/gallery.component";
@@ -25,7 +26,8 @@ import { YearbookComponent } from "./yearbook/yearbook.component";
   imports: [
     CommonModule,
     RoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    NgxSkeletonLoaderModule
   ]
 })
 export class PagesModule { }

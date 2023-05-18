@@ -1,38 +1,57 @@
-<div class="absolute inset-0 h-auto z-10 bg-gradient-to-t from-black" *ngIf="currentPhoto">
+<div class="absolute inset-0 h-screen z-10 bg-gradient-to-t from-black" *ngIf="currentPhoto">
 
-  <div class="mx-auto max-w-md rounded-lg bg-[#19161f] shadow">
+  <div class="mx-auto h-max w-max max-w-md rounded-lg bg-[#19161f] shadow">
     <div class="p-4">
-      <i class="fa-solid fa-rectangle-xmark text-red-600"></i>
-      <h3 class="text-xl font-medium text-white">Foto {{ currentPhoto.j }}</h3>
-      <img [src]="currentPhoto.src" [alt]="'Photo ' + currentPhoto.j">
-      <p class="mt-1 text-gray-500">Sailboat UI is a modern UI component library for Tailwind CSS. Get started with 150+
-        open source components.</p>
+      <div class="w-full flex flex-row align-middle justify-between">
+        <div class="w-full h-fit">
+          <h1 class="font-bold text-white text-lg mb-1">FOTO {{ currentPhoto.j }}</h1>
+        </div>
+        <div class="w-fit min-w-[6rem] min-h-max flex align-middle text-right justify-end">
+          <i class="fa-sharp fa-solid my-auto relative fa-rectangle-xmark text-red-300 h-4 w-full text-xs cursor-pointer"
+            (click)="closeModal()">
+            FECHAR</i>
+        </div>
+      </div>
+      <figure>
+        <img [src]="currentPhoto.src" (mouseover)="onZoom($event)" (mousemove)="onZoom($event)" (mouseleave)="offZoom()"
+          [alt]="'Photo ' + currentPhoto.j">
+      </figure>
+      <div class="card-zoom-image bg-beetle"></div>
+
     </div>
   </div>
 
 </div>
 
 <!--FOTOS-->
-<h1 class="font-bold text-white text-2xl p-1 pl-10 mt-4">FOTOS</h1>
-<div class="conteudo">
+<div class="conteudo mt-6">
+  <h1 class="font-bold text-white text-2xl p-1 pl-0">FOTOS</h1>
   <div class="container">
-    <ng-container *ngFor="let src of photos; let j = index;">
-      <figure>
-        <img
-          (click)="showModal({'j': j, 'src': driveUrl + src})" [src]="driveUrl + src" alt="Foto {{j}}">
+    <ng-container *ngFor="let src of images; let j = index;">
+      <figure class="cursor-pointer" (click)="showModal({'j': j, 'src': driveUrl + src})">
+        <img [src]="driveUrl + src" alt="Foto {{j}}">
       </figure>
     </ng-container>
+
   </div>
 </div>
 
+<div class="w-full h-fit flex align-middle justify-center mt-4">
+  <button type="button"
+    class="mx-auto rounded-lg border border-violet-500 bg-violet-500 px-5 py-2.5 text-center text-sm font-medium text-white shadow-sm transition-all hover:border-violet-700 hover:bg-violet-700 focus:ring focus:ring-violet-200 disabled:cursor-not-allowed disabled:border-violet-300 disabled:bg-violet-300"
+    (click)="loadMoreImages()" *ngIf="showLoadMoreButton"><span *ngIf="!loadingAnimation">CARREGAR MAIS</span><span
+      *ngIf="loadingAnimation" class="mr-1">CARREGANDO...</span><i *ngIf="loadingAnimation"
+      class="fa-solid fa-circle-notch animate-spin"></i></button>
+</div>
+
 <!--VIDEOS-->
-<h1 class="font-bold text-white text-2xl p-1 pl-10 mt-4">VÍDEOS</h1>
 <div class="conteudo">
+  <h1 class="font-bold text-white text-2xl p-1 pl-0">VÍDEOS</h1>
   <div class="container">
     <ng-container *ngFor="let src of videos; let j = index;">
-        <video controls class="image rounded-sm cursor-pointer" >
-          <source [src]="driveUrl + src">
-        </video>
+      <video controls class="image rounded-sm cursor-pointer">
+        <source [src]="driveUrl + src">
+      </video>
     </ng-container>
   </div>
 </div>

@@ -1,6 +1,7 @@
-<div class="flex justify-center flex-row m-0 p-0 max-h-max h-full w-[100vw] relative py-16 min-h-[60vh]"
+<div
+  class="flex justify-center flex-row m-0 p-0 max-h-max h-full w-[100vw] relative  md:px-6 md:pt-6 md:pb-6 2xli:py-16 min-h-[60vh]"
   style="align-items: center">
-  <div class="h-fit my-auto rounded-lg bg-[#19161f] shadow mt-3 mb-3 p-2 w-[60%] relative max-h-max py-auto"
+  <div class="h-fit my-auto rounded-lg bg-[#19161f] shadow mt-3 mb-3 p-2 w-[60%] md:w-full relative max-h-max py-auto"
     *ngIf="projectData">
     <div class="p-4">
       <div class="w-full flex flex-row align-middle justify-between">
@@ -23,7 +24,20 @@
       <p class="mt-1 text-gray-500 rounded-lg shadow bg-[#2a2634] w-fit h-fit p-2"
         *ngIf="!projectData.descriptionLong && projectData.description">{{ projectData.description }}</p>
 
-      <h1 class="font-bold text-white text-lg mb-1 mt-2" *ngIf="projectData.photos">FOTO</h1>
+      <div>
+        <!--REDES SOCIAIS-->
+        <h1 class="font-bold text-white text-lg mb-1 mt-2" *ngIf="projectData.github">REPOSITÓRIO</h1>
+        <ul class="w-fit flex align-center justify-between flex-row mt-1 cursor-pointer" *ngIf="projectData.github">
+          <li *ngIf="projectData.github"
+            class="mb-2 bg-[#2a2634] transition	hover:bg-[#19161f] hover:border-gray-300 border-2 border-transparent rounded-lg p-3 w-full mr-1">
+            <a class="text-gray-400 text-end text-md" [href]="projectData.github"><i
+                class="fa-brands fa-github mr-2"></i>GitHub</a>
+          </li>
+        </ul>
+      </div>
+
+      <h1 class="font-bold text-white text-lg mb-1 mt-2" *ngIf="projectData.photos">{{'FOTO' +
+        (projectData.photos.length > 1 ? 'S' : '')}}</h1>
       <div *ngIf="projectData.photos">
         <img [src]="photo" [alt]="'Foto ' + (j+1)" class="rounded-lg mb-2"
           *ngFor="let photo of projectData.photos; let j = index">
@@ -33,7 +47,11 @@
       <div class="flex flex-wrap justify-start gap-3 rounded-lg shadow mt-1 mb-2 w-fit" *ngIf="projectCreators">
         <div class="h-10 w-10 cursor-pointer transition-opacity hover:opacity-50"
           *ngFor="let creator of projectCreators" (click)="showInfoModal(creator)">
-          <img class="h-full w-full rounded-full object-cover object-center shadow" [src]="creator.img"
+          <img *ngIf="!creator.loaded || !creator.img"
+            src="https://i.pinimg.com/550x/57/70/f0/5770f01a32c3c53e90ecda61483ccb08.jpg"
+            class="h-full w-full rounded-full object-cover object-center shadow animate-pulse" alt="Carregando..." />
+          <img [hidden]="!creator.loaded" (load)="loadSpecificUserImage(creator)"
+            class="h-full w-full rounded-full object-cover object-center shadow" [src]="creator.img"
             [alt]="creator.name" />
         </div>
       </div>

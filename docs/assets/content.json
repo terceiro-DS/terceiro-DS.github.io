@@ -51,7 +51,7 @@
       "github": "https://github.com/isakevia",
       "instagram": "https://instagram.com/isakevia",
       "linkedin": "https://www.linkedin.com/in/isabelli-kevia-67b315276/",
-      "tccId": 0
+      "tccId": 10
     },
     {
       "name": "Lívia Maria Marques de Souza",
@@ -244,7 +244,7 @@
       "descricao": "Sou uma pessoa entusiasmada e dedicada, sempre disposta a aprender novas coisas.",
       "github": "https://github.com/aryflavio",
       "instagram": "https://instagram.com/ariannyflavio",
-      "tccId": 0
+      "tccId": 10
     },
     {
       "name": "Cristian dos Santos Machado",
@@ -254,7 +254,7 @@
       "descricao": "Uma pessoa estressada, grossa as vezes insuportável, mas incrivelmente bonita, simpática e inteligente e AS VEZES arrogante",
       "github": "https://github.com/Crixxtian",
       "instagram": "https://instagram.com/crismaxxado",
-      "tccId": 0
+      "tccId": 10
     },
     {
       "name": "Vinicius Henrique Santos Pinto",
@@ -276,7 +276,7 @@
       "github": "https://github.com/manuz7",
       "instagram": "https://instagram.com/ma_nuu27",
       "linkedin": "https://www.linkedin.com/in/manuela-bassetto-naves-67bba9252",
-      "tccId": 0
+      "tccId": 11
     },
     {
       "name": "João Érik da Silva Crisóstomo",
@@ -334,7 +334,7 @@
     {
       "name": "Yuri Rogério Onório",
       "nickname": "Yuriizada",
-      "img": "https://drive.google.com/uc?id=1ofgq-pPqfViV_NxeG0LAVr2h6fUICbYt",
+      "img": "https://drive.google.com/uc?id=1W9wNxL7tPn1l7QNO0Zw0sEw-aften4WV",
       "quote": "No corre para conquistar aquela branquela ... (a tal da Saveiro G6)",
       "descricao": "Me chamo Yuri e nasci na data 05/05/2005. Meu passa tempo é jogar qualquer tipo de jogo no computador, ouvir músicas e sair com os amigos. Gosto muito de sair com meus amigos cada vez é só risada e história para contar.",
       "github": "https://github.com/YuriOnorio",
@@ -349,7 +349,7 @@
       "descricao": "Apenas uma pessoa com bateria social zerada e eclética a tudo que há escolhas.",
       "github": "https://github.com/Anazz24",
       "instagram": "https://instagram.com/nalaura_m_",
-      "tccId": 0
+      "tccId": 11
     },
     {
       "name": "Beatriz dos Santos Marques",
@@ -359,7 +359,18 @@
       "descricao": "Gosto de dançar, de ouvir the weeknd e músicas nacionais e de observar o céu de noite. Minhas constelações preferidas são: órion, touro, leão e gêmeos.",
       "github": "https://github.com/BiahMarqyes",
       "instagram": "https://instagram.com/beatriz_marques_santos",
-      "tccId": 0
+      "tccId": 11
+    },
+    {
+      "name": "Arthur Marques de Oliveira",
+      "nickname": "Arthas",
+      "img": "https://drive.google.com/uc?id=1NhgkgTSfV7R4AFxxDQFjtPqACJ9r1cN7",
+      "quote": "Lost.",
+      "descricao": "Sou comunicativo, brincalhão, gosto de estar com meus amigos e colegas na sala e vou sentir muita falta disso. Procuro sempre ajudar quem precisa em qualquer coisa. Gosto de matemática, física, programação, design, esportes, brinco de tocar guitarra e violão, odeio perder um dia de academia e não fico sem o meu fone tocando the neighborhood.",
+      "github": "https://github.com/arthurm9",
+      "instagram": "https://instagram.com/m9arthur",
+      "linkedin": "https://www.linkedin.com/in/arthurmoliveira/",
+      "tccId": 1
     }
   ]
 }

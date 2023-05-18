@@ -1,14 +1,11 @@
-<footer class=" bg-[#19161f] w-full h-[20rem]">
+<footer class=" bg-[#19161f] w-full h-[20rem] 2xli:pr-5">
   <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
     <div class="flex justify-between md:flex md:justify-normal">
       <div class="mb-6 md:mb-0">
-        <a href="/" class="flex items-center">
-          <!--
-                      <img src="../../../assets/logo.png" class="h-24 aspect-square mr-3" alt="DS Logo" />
-          -->
+        <figure (click)="spin($event)">
           <img src="https://raw.githubusercontent.com/terceiro-DS/.github/master/assets/qr-code.png"
             class="h-24 aspect-square mr-3" alt="QR Code" />
-        </a>
+        </figure>
       </div>
       <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
         <div>
@@ -27,12 +24,12 @@
         </div>
       </div>
     </div>
-    <hr class="my-6  sm:mx-auto border-gray-700 lg:my-8" />
-    <div class="sm:flex sm:items-center sm:justify-between">
-      <span class="text-sm  sm:text-center text-gray-400">© 2023 <a href="https://terceiro-ds.github.io"
+    <hr class="my-6 mx-auto border-gray-700 lg:my-8" />
+    <div class="flex items-center justify-between">
+      <span class="text-sm  text-center text-gray-400">© 2023 <a href="https://terceiro-ds.github.io"
           class="hover:underline">TERCEIRO DS</a>. Todos os direitos reservados.
       </span>
-      <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
+      <div class="flex mt-4 space-x-6 justify-center mt-0">
         <a href="https://github.com/terceiro-ds" class="text-gray-500 hover:text-white">
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path fill-rule="evenodd"

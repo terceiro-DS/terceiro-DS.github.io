@@ -37,6 +37,11 @@ export class CardComponent {
   customClass: any;
 
   maxLength = 32;
+  imageLoaded: boolean = false;
+
+  loadImage() {
+    this.imageLoaded = true;
+  }
 
   capitalizeFirstLetter(str: string): string {
     return str.charAt(0).toUpperCase() + str.slice(1)

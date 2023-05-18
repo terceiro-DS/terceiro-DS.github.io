@@ -28,13 +28,10 @@
   </div>
 </div>
 -->
-
-
 <div class="relative mx-auto w-[90vw] h-[100%] min-h-screen flex justify-center place-content-start flex-wrap mb-10">
   <app-card (click)="showInfoModal(student)"
-    class="h-max p-1 lg:p-1 w-[100%] w-[19%] md:w-[80rem] my-4 mx-2 min-h-[15rem]"
-    *ngFor="let student of students" [img]="student.img" [name]="student.name" [quote]="student.quote"
-    [nickname]="student.nickname"></app-card>
+    class="h-max p-1 lg:p-1 w-[100%] w-[19%] md:w-[80rem] my-4 mx-2 min-h-[15rem]" *ngFor="let student of students"
+    [img]="student.img" [name]="student.name" [quote]="student.quote" [nickname]="student.nickname"></app-card>
 </div>
 <div role="status" class="w-screen h-screen overflow-hidden m-auto" *ngIf="students.length == 0">
   <app-loading class="w-full h-full"></app-loading>
