@@ -18,7 +18,7 @@ Site da turma para guardar nossas memórias
 ```pwsh
   ng build --configuration production --output-path docs --base-href /
 ```
-**PS:** *Ao gerar o build, deuplicar o index.html e renomear como 404.html.*
+**PS:** *Ao gerar o build, duplicar o index.html e renomear como 404.html.*
 
 ## Contribuidores
 <a href = "https://github.com/Tanu-N-Prabhu/Python/graphs/contributors">
