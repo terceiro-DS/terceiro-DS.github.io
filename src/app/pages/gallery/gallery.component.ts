@@ -27,6 +27,8 @@ export class GalleryComponent implements OnInit {
 
   img: any;
 
+  constructor(private cdr: ChangeDetectorRef, private galleryService: GalleryService) { }
+
   range(start: number, end: number) {
     const number = [];
     for (let i = start; i <= end; i++) {
@@ -35,13 +37,42 @@ export class GalleryComponent implements OnInit {
     return number;
   }
 
-  constructor(private cdr: ChangeDetectorRef, private galleryService: GalleryService) { }
+  checkSize(event: any) {
+    const target = event.target;
+    document.body.style.overflowY = 'hidden';
+    document.body.style.height = '100%';
+    document.body.style.minHeight = '100%';
+    if (window.matchMedia("(max-width: 767px)").matches) {
+      target.style.maxWidth = '85vw';
+      return;
+    }
+    const x = target.width;
+    const y = target.height;
+    let scale = 1;
+    if (y >= 700 && y < 800) {
+      target.style.maxWidth = '40vw';
+    }
+    else if (y >= 800 && y < 1000) {
+      target.style.maxWidth = '30vw';
+    }
+    else if (y >= 1000) {
+      target.style.maxWidth = '20vw';
+    } else if (x <= 416 && y <= 312) {
+      scale = 1.2
+      target.style.width = `${x * scale}px`;
+      target.style.height = `${y * scale}px`;
+      target.style.maxWidth = `50vw`;
+    }
+  }
 
   floor(num: number): number {
     return Math.floor(num);
   }
 
   closeModal() {
+    document.body.style.overflowY = 'visible';
+    document.body.style.height = 'fit-content';
+    document.body.style.minHeight = '100vh';
     this.currentPhoto = null;
   }
 

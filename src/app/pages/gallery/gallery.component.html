@@ -1,38 +1,42 @@
-<div class="absolute inset-0 h-screen z-10 bg-gradient-to-t from-black" *ngIf="currentPhoto">
-
-  <div class="mx-auto h-max w-max max-w-md rounded-lg bg-[#19161f] shadow">
-    <div class="p-4">
+<div class="fixed inset-0 h-screen z-10 bg-gradient-to-t from-black flex items-center justify-center"
+  *ngIf="currentPhoto">
+  <div class="w-full h-full absolute bg-black opacity-50 z-[-1]" (click)="closeModal()"></div>
+  <div class="mx-auto h-fit w-fit  rounded-lg bg-[#19161f] shadow">
+    <div class="p-4 py-2 w-fit h-fit">
       <div class="w-full flex flex-row align-middle justify-between">
         <div class="w-full h-fit">
           <h1 class="font-bold text-white text-lg mb-1">FOTO {{ currentPhoto.j }}</h1>
         </div>
         <div class="w-fit min-w-[6rem] min-h-max flex align-middle text-right justify-end">
-          <i class="fa-sharp fa-solid my-auto relative fa-rectangle-xmark text-red-300 h-4 w-full text-xs cursor-pointer"
+          <i class="fa-sharp fa-solid my-auto relative fa-circle-xmark text-red-600 h-4 w-full text-xs cursor-pointer"
             (click)="closeModal()">
             FECHAR</i>
         </div>
       </div>
-      <figure>
-        <img [src]="currentPhoto.src" (mouseover)="onZoom($event)" (mousemove)="onZoom($event)" (mouseleave)="offZoom()"
-          [alt]="'Photo ' + currentPhoto.j">
+      <figure class="w-fit h-fit">
+        <img (load)="checkSize($event)" [src]="currentPhoto.src" [alt]="'Photo ' + currentPhoto.j"
+          class="transition-all" style="max-width: 50vw">
       </figure>
       <div class="card-zoom-image bg-beetle"></div>
-
     </div>
   </div>
-
 </div>
 
 <!--FOTOS-->
-<div class="conteudo mt-6">
-  <h1 class="font-bold text-white text-2xl p-1 pl-0">FOTOS</h1>
+<div class="conteudo mt-16 md:mt-3 md:px-4">
+  <h1
+    class="font-bold text-white text-2xl p-1 2xli:ml-40 pl-0 text-left w-[88vw] ml-[0.5rem] md:ml-0 md:w-full md:pl-0 inline-block">
+    FOTOS
+  </h1>
   <div class="container">
-    <ng-container *ngFor="let src of images; let j = index;">
-      <figure class="cursor-pointer" (click)="showModal({'j': j, 'src': driveUrl + src})">
-        <img [src]="driveUrl + src" alt="Foto {{j}}">
-      </figure>
-    </ng-container>
 
+    <div class="w-fit h-fit">
+      <ng-container *ngFor="let src of images; let j = index;">
+        <figure class="cursor-pointer" (click)="showModal({'j': j+1, 'src': driveUrl + src})">
+          <img [src]="driveUrl + src" alt="Foto {{j}}" class="img">
+        </figure>
+      </ng-container>
+    </div>
   </div>
 </div>
 
@@ -45,8 +49,11 @@
 </div>
 
 <!--VIDEOS-->
-<div class="conteudo">
-  <h1 class="font-bold text-white text-2xl p-1 pl-0">VÍDEOS</h1>
+<div class="conteudo md:px-4 mt-6 mb-24">
+  <h1
+    class="font-bold text-white text-2xl p-1 2xli:ml-40 pl-0 text-left w-[88vw] ml-[0.5rem] md:ml-0 md:w-full md:pl-0 inline-block">
+    VÍDEOS
+  </h1>
   <div class="container">
     <ng-container *ngFor="let src of videos; let j = index;">
       <video controls class="image rounded-sm cursor-pointer">

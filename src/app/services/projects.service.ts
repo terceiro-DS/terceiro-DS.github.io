@@ -67,8 +67,9 @@ export class ProjectsService {
   }
 
   async getProjectFromId(id: number): Promise<IProjectData | void> {
+    const cachedData = await this.getProjects();
     let cachedProject: IProjectData;
-    const promises: any = this.projects.map(async (project: IProjectData) => {
+    const promises: any = cachedData.map(async (project: IProjectData) => {
       if (project.id == id) {
         cachedProject = project;
       }

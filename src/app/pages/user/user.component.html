@@ -66,17 +66,17 @@
           *ngIf="userData.instagram || userData.github || userData.linkedin">
           <li *ngIf="userData.github"
             class="mb-2 bg-[#19161f] transition	hover:bg-[#2a2634] hover:border-gray-300 cursor-pointer border-2 border-transparent rounded-lg p-3 w-full mr-1">
-            <a class="text-gray-400 text-end text-md" [href]="userData.github"><i
+            <a class="text-gray-400 text-end text-md md:text-center" [href]="userData.github"><i
                 class="fa-brands fa-github mr-2"></i>GitHub</a>
           </li>
           <li *ngIf="userData.instagram"
             class="mb-2 bg-[#19161f] transition	hover:bg-[#2a2634] hover:border-gray-300 cursor-pointer border-2 border-transparent rounded-lg p-3 w-full mx-1">
-            <a class="text-gray-400 text-end text-md" [href]="userData.instagram"><i
+            <a class="text-gray-400 text-end text-md md:text-center" [href]="userData.instagram"><i
                 class="fa-brands fa-instagram mr-2"></i>Instagram</a>
           </li>
           <li *ngIf="userData.linkedin"
             class="mb-2 bg-[#19161f] transition	hover:bg-[#2a2634] hover:border-gray-300 cursor-pointer border-2 border-transparent rounded-lg p-3 w-full ml-1">
-            <a class="text-gray-400 text-end text-md" [href]="userData.linkedin"><i
+            <a class="text-gray-400 text-end text-md md:text-center" [href]="userData.linkedin"><i
                 class="fa-brands fa-linkedin mr-2"></i>LinkedIn</a>
           </li>
         </ul>
