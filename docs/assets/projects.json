@@ -71,13 +71,25 @@
       "description": "Sound Sage é um projeto que auxilia na apredizagem de novos instrumentos.",
       "descriptionLong": "O projeto Sound Sage, consiste em ajudar alunos que queiram aprender algum instrumento e a professores que dão aulas particulares para auxiliar no seu desenvolvimento.",
       "photos": [
-        "https://drive.google.com/uc?id=1Nqu3WmfZuc5NuhOaPEPf1Ma3p_Y4G3BG"
+        "https://drive.google.com/uc?id=1qi6qZLdRfN4tsJWNWYWSwgkRQ6wxPW_2"
       ]
     },
     {
       "id": 11,
       "title": "My First Trip",
       "description": "O projeto de TCC é um aplicativo mobile para auxiliar os país e responsáveis a se organizarem na rotina com seus filhos."
+    },
+    {
+      "id": 12,
+      "title": "Stochos",
+      "description": "Programa de Gestão de Metas"
+    },
+    {
+      "id": 13,
+      "title": "Adota LP",
+      "description": "Site para incentivar a adoção de animais",
+      "github": "https://github.com/MelloNickolas/AdotaLp",
+      "descriptionLong": "O projeto de TCC é o desenvolvimento de um site para incentivar a adoção de animais. Seu funcionamento é baseado na interação entre usuários (doador e adotante), onde é possível estabelecer relações e efetivar a adoção. O doador deve inserir as informações do animal que está sendo cadastrado (nome, sexo, situação) e o adotante deve informar seus dados pessoais (nome, endereço, telefone para contato) para efetuar o login e ser encaminhado para o processo de adoção, onde terá o contato direto com o doador. "
     }
 
 

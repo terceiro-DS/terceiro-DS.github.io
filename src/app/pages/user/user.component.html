@@ -19,28 +19,40 @@
         </h3>
         <h3 class="text-xs text-gray-400 font-medium antialiased line-clamp-2  md:px-4" *ngIf="userData.name">({{
           userData.name }})</h3>
-        <p class="mt-1 text-gray-500 text-ms text-center line-clamp-2  md:line-clamp-4 md:px-4 md:text-sm"
+        <p class="mt-1 text-gray-500 text-ms text-left line-clamp-2  md:line-clamp-4 md:px-4 md:text-sm"
           *ngIf="userData.quote">
           "{{
           capitalizeFirstLetter(userData.quote)
           }}"</p>
-        <span x-data="{ tooltip: 'Este usuário ajudou durante o desenvolvimento.' }">
+        <span *ngIf="device == 'Other'" x-data="{ tooltip: 'Este usuário ajudou durante o desenvolvimento.' }">
           <i class="w-full fa-solid fa-code bg-[#19161f] rounded-lg p-2 text-xs text-gray-400 mt-3 text-center hover:border-gray-300 border-2 border-transparent md:mt-1 md:mx-4 h-fit"
             *ngIf="userData.nickname && checkIfIsDev(userData.nickname, 'dev')"
             x-tooltip.placement.right="tooltip"><small style="font-size: .4rem">ㅤ</small><span class="font-semibold"
               style="font-family: 'Inter', sans-serif">DESENVOLVEDOR</span></i>
         </span>
-        <span x-data="{ tooltip: 'Este usuário contribuiu para o projeto.' }">
+        <span *ngIf="device == 'Other'" x-data="{ tooltip: 'Este usuário contribuiu para o projeto.' }">
           <i x-tooltip.placement.right="tooltip"
             class="w-full fa-solid fa-handshake-angle bg-[#19161f] rounded-lg p-2 text-xs text-gray-400 mt-2 text-center hover:border-gray-300 border-2 border-transparent md:mt-1 md:mx-4 h-fit mb-5 sm:mb-0"
             *ngIf="userData.nickname && checkIfIsDev(userData.nickname, 'contributor')"><small
               style="font-size: .4rem">ㅤ</small><span class="font-semibold"
               style="font-family: 'Inter', sans-serif">CONTRIBUIDOR</span></i>
         </span>
+
       </div>
     </div>
-    <div class="my-8 mx-8 md:my-4 md:mx-4 w-full md:w-fit ">
-
+    <div class="my-8 mx-8 md:my-4 md:mx-4 w-full md:w-fit">
+      <span *ngIf="device == 'Mobile' && userData.nickname && checkIfIsDev(userData.nickname, 'contributor')"
+        x-data="{ tooltip: 'Este usuário contribuiu para o projeto.' }"
+        class="mb-10 fa-solid fa-handshake-angle bg-[#19161f] w-full rounded-lg p-2 text-xs text-gray-400 mt-2 text-center hover:border-gray-300 border-2 border-transparent md:mt-1 mx-auto h-fit sm:mb-3">
+        <i x-tooltip.placement.bottom="tooltip"><small style="font-size: .4rem">ㅤ</small><span class="font-semibold"
+            style="font-family: 'Inter', sans-serif">CONTRIBUIDOR</span></i>
+      </span>
+      <span *ngIf="device == 'Mobile' && userData.nickname && checkIfIsDev(userData.nickname, 'dev')"
+        x-data="{ tooltip: 'Este usuário contribuiu para o projeto.' }"
+        class="mb-10 fa-solid fa-code bg-[#19161f] w-full rounded-lg p-2 text-xs text-gray-400 mt-2 text-center hover:border-gray-300 border-2 border-transparent md:mt-1 mx-auto h-fit sm:mb-3">
+        <i x-tooltip.placement.bottom="tooltip"><small style="font-size: .4rem">ㅤ</small><span class="font-semibold"
+            style="font-family: 'Inter', sans-serif">DESENVOLVEDOR</span></i>
+      </span>
       <!--Conteudo-->
       <div>
         <!--SOBRE MIM-->
@@ -54,7 +66,7 @@
               VOLTAR</i>
           </div>
         </div>
-        <h3 class="text-md w-full font-normal text-gray-400 rounded-lg bg-[#19161f] p-3 mb-6 mt-1"
+        <h3 class="text-md w-full font-normal text-justify text-gray-400 rounded-lg bg-[#19161f] p-3 mb-6 mt-1"
           style="white-space: pre-line">
           {{userData.descricao}}</h3>
       </div>
@@ -64,17 +76,17 @@
           *ngIf="userData.instagram || userData.github || userData.linkedin">REDES SOCIAIS</h1>
         <ul class="w-full flex align-center justify-between flex-row mb-3 mt-1"
           *ngIf="userData.instagram || userData.github || userData.linkedin">
-          <li *ngIf="userData.github"
+          <li *ngIf="userData.github" (click)="goToUrl(userData.github)"
             class="mb-2 bg-[#19161f] transition	hover:bg-[#2a2634] hover:border-gray-300 cursor-pointer border-2 border-transparent rounded-lg p-3 w-full mr-1">
             <a class="text-gray-400 text-end text-md md:text-center" [href]="userData.github"><i
                 class="fa-brands fa-github mr-2"></i>GitHub</a>
           </li>
-          <li *ngIf="userData.instagram"
+          <li *ngIf="userData.instagram" (click)="goToUrl(userData.instagram)"
             class="mb-2 bg-[#19161f] transition	hover:bg-[#2a2634] hover:border-gray-300 cursor-pointer border-2 border-transparent rounded-lg p-3 w-full mx-1">
             <a class="text-gray-400 text-end text-md md:text-center" [href]="userData.instagram"><i
                 class="fa-brands fa-instagram mr-2"></i>Instagram</a>
           </li>
-          <li *ngIf="userData.linkedin"
+          <li *ngIf="userData.linkedin" (click)="goToUrl(userData.linkedin)"
             class="mb-2 bg-[#19161f] transition	hover:bg-[#2a2634] hover:border-gray-300 cursor-pointer border-2 border-transparent rounded-lg p-3 w-full ml-1">
             <a class="text-gray-400 text-end text-md md:text-center" [href]="userData.linkedin"><i
                 class="fa-brands fa-linkedin mr-2"></i>LinkedIn</a>

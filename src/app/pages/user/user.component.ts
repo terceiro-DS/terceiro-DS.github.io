@@ -12,7 +12,7 @@ import { ProjectsService } from 'src/app/services/projects.service';
   styleUrls: ['./user.component.scss'],
   providers: []
 })
-export class UserComponent {
+export class UserComponent implements OnInit {
 
   default: any = {
     name: 'Carregando...',
@@ -29,8 +29,16 @@ export class UserComponent {
   userData: any = this.default;
   tccData: any;
   imageLoaded: boolean = false;
+  device: string = 'Other';
 
   constructor(private dataService: DataService, private route: ActivatedRoute, private router: Router, private projectsService: ProjectsService, public isdev: IsdevPipe) { }
+
+  getDevice() {
+    if (window.matchMedia("(max-width: 767px)").matches) {
+      return 'Mobile';
+    }
+    return 'Other'
+  }
 
   async tryGetTccData() {
     if (!this.userData) {
@@ -73,6 +81,14 @@ export class UserComponent {
   showInfoModal(project: IProjectData) {
     this.projectsService.setViewProject(project);
     this.router.navigate(['projeto', project.title.toLowerCase()]);
+  }
+
+  goToUrl(url: string) {
+    window.location.href = url;
+  }
+
+  ngOnInit() {
+    this.device = this.getDevice();
   }
 
   ngAfterViewInit() {

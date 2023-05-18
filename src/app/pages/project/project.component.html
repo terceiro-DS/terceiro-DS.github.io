@@ -18,17 +18,18 @@
       </h3>
 
       <h1 class="font-bold text-white text-lg mb-1 mt-2">DESCRIÇÃO</h1>
-      <p class="mt-1 text-gray-500 rounded-lg shadow bg-[#2a2634] w-fit h-fit p-2" *ngIf="projectData.descriptionLong">
+      <p class="mt-1 text-gray-500 rounded-lg text-justify shadow bg-[#2a2634] w-fit h-fit p-2"
+        *ngIf="projectData.descriptionLong">
         {{
         projectData.descriptionLong }}</p>
-      <p class="mt-1 text-gray-500 rounded-lg shadow bg-[#2a2634] w-fit h-fit p-2"
+      <p class="mt-1 text-gray-500 rounded-lg text-justify shadow bg-[#2a2634] w-fit h-fit p-2"
         *ngIf="!projectData.descriptionLong && projectData.description">{{ projectData.description }}</p>
 
       <div>
         <!--REDES SOCIAIS-->
         <h1 class="font-bold text-white text-lg mb-1 mt-2" *ngIf="projectData.github">REPOSITÓRIO</h1>
         <ul class="w-fit flex align-center justify-between flex-row mt-1 cursor-pointer" *ngIf="projectData.github">
-          <li *ngIf="projectData.github"
+          <li *ngIf="projectData.github" (click)="goToUrl(projectData.github)"
             class="mb-2 bg-[#2a2634] transition	hover:bg-[#19161f] hover:border-gray-300 border-2 border-transparent rounded-lg p-3 w-full mr-1">
             <a class="text-gray-400 text-end text-md" [href]="projectData.github"><i
                 class="fa-brands fa-github mr-2"></i>GitHub</a>

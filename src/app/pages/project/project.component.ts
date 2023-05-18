@@ -36,6 +36,10 @@ export class ProjectComponent {
     data.loaded = true;
   }
 
+  goToUrl(url: string) {
+    window.location.href = url;
+  }
+
   async loadUser() {
     const cachedProjectData = this.projectsService.getViewProject();
     if (cachedProjectData) {
