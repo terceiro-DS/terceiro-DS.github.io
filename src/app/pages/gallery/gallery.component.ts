@@ -23,7 +23,7 @@ export class GalleryComponent implements OnInit {
   showLoadMoreButton = true;
 
   startIndex = 0;
-  endIndex = 10;
+  endIndex = 15;
 
   img: any;
 
@@ -117,7 +117,7 @@ export class GalleryComponent implements OnInit {
     if (additionalImages.length > 0) {
       this.images = this.images.concat(additionalImages);
       this.startIndex = this.endIndex + 1;
-      this.endIndex = this.startIndex + 7;
+      this.endIndex = this.startIndex + 15;
       setTimeout(() => {
         this.loadingAnimation = false;
       }, 1000)

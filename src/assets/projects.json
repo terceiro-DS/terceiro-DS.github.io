@@ -76,7 +76,7 @@
     },
     {
       "id": 11,
-      "title": "My First Trip",
+      "title": "Together",
       "description": "O projeto de TCC é um aplicativo mobile para auxiliar os país e responsáveis a se organizarem na rotina com seus filhos."
     },
     {
@@ -90,8 +90,18 @@
       "description": "Site para incentivar a adoção de animais",
       "github": "https://github.com/MelloNickolas/AdotaLp",
       "descriptionLong": "O projeto de TCC é o desenvolvimento de um site para incentivar a adoção de animais. Seu funcionamento é baseado na interação entre usuários (doador e adotante), onde é possível estabelecer relações e efetivar a adoção. O doador deve inserir as informações do animal que está sendo cadastrado (nome, sexo, situação) e o adotante deve informar seus dados pessoais (nome, endereço, telefone para contato) para efetuar o login e ser encaminhado para o processo de adoção, onde terá o contato direto com o doador. "
+    },
+    {
+      "id": 14,
+      "title": "TecLab",
+      "description":"Sistema de Agendamento de Horarios de Laboratórios",
+      "descriptionLong":"É um aplicativo que tem como objetivo o agendamento dos laboratórios da Etec Cidade do Livro, sendo possível ser acessado somente pelos professores e coordenadores da escola. O intuito desse projeto é facilitar e otimizar o tempo  dos professores."
+    },
+    {
+      "id": 15,
+      "title": "SkinGuard",
+      "description": "Um aplicativo para ajudar na prevenção do câncer de pele",
+      "github": "https://github.com/JoaoPedroBispo/SkinGuard"
     }
-
-
   ]
 }
