@@ -18,7 +18,7 @@ export class GalleryComponent implements OnInit {
 
   currentPhoto: any;
 
-  driveUrl: string = 'https://drive.google.com/uc?id=';
+  driveUrl: string = 'https://lh3.google.com/u/0/d/';
 
   showLoadMoreButton = true;
 
